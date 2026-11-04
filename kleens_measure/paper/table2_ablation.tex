@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\caption{Ablation Breakdown of Structural Contributions against Baseline H-00.}
+\label{tab:ablation}
+\small
+\begin{tabular}{lrr}
+\toprule
+\textbf{Algorithmic Mechanism} & \textbf{Peak Work Reduction} & \textbf{Rec. Call Reduction} \\
+\midrule
+Active Ridge Endpoint Selection ($\operatorname{deg}(i)$) & $-40.5\%$ & $-44.9\%$ \\
+Quadratic Spanning-Box Penalty & $-40.0\%$ & $-46.7\%$ \\
+Centered GSAH Min-Duplication Plane ($\lambda = 2.0$) & $-97.4\%$ & $-99.95\%$ \\
+Transverse Ridge Duplication Penalty ($\operatorname{coeff} = 0.15$) & $-99.02\%$ & $-99.993\%$ \\
+Coarse-to-Fine Adaptive Leaf Sweep ($|B| \le 500$) & $\mathbf{-99.80\%}$ & $\mathbf{-99.9993\%}$ \\
+\bottomrule
+\end{tabular}
+\end{table}

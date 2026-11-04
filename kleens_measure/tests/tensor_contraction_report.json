@@ -1,0 +1,29 @@
+{
+  "status": "SUCCESS",
+  "timestamp": "2026-11-04 16:40:35",
+  "total_tests": 530,
+  "total_passed": 530,
+  "elapsed_seconds": 1.417693853378296,
+  "dimensions": {
+    "3": {
+      "total": 210,
+      "passed": 210,
+      "elapsed_seconds": 0.2556271553039551,
+      "accuracy": 1.0
+    },
+    "4": {
+      "total": 210,
+      "passed": 210,
+      "elapsed_seconds": 0.8587839603424072,
+      "accuracy": 1.0
+    },
+    "5": {
+      "total": 110,
+      "passed": 110,
+      "elapsed_seconds": 0.30324578285217285,
+      "accuracy": 1.0
+    }
+  },
+  "exact_verification": true,
+  "mathematical_theorem": "Clean-Cell Tensor Network Contraction Lemma for arbitrary d >= 3"
+}

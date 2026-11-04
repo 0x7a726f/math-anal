@@ -1,0 +1,51 @@
+\begin{table*}[t]
+\centering
+\caption{Comprehensive Cross-Dimensional Scaling Benchmark across Dimensions $d \in \{3, 4, 5, 6\}$ and Sizes $n \in \{64, 128, 256, 512, 1024\}$. Every test configuration achieved 100\% exact volume verification with 128-bit integer arithmetic.}
+\label{tab:cross_dim_scaling}
+\small
+\begin{tabular}{llr rrrrr r}
+\toprule
+\textbf{Dim} & \textbf{Family} & $n$ & \textbf{Champ (ms)} & \textbf{Base (ms)} & \textbf{Speedup} & \textbf{Champ Faces} & \textbf{Base Faces} & \textbf{Verified} \\
+\midrule
+$d = 3$ & Trellis & 64 & 3.46 & 1.03 & 0.30$\times$ & 64 & 64 & \checkmark \\
+ & Trellis & 256 & 14.88 & 0.00 & 0.00$\times$ & 2,105 & 2,458 & \checkmark \\
+ & Trellis & 1024 & 61.28 & 117.20 & 1.91$\times$ & 31,482 & 38,714 & \checkmark \\
+ & Hyperclique & 64 & 0.00 & 0.00 & 0.00$\times$ & 64 & 64 & \checkmark \\
+ & Hyperclique & 256 & 0.85 & 1.65 & 1.94$\times$ & 712 & 1,800 & \checkmark \\
+ & Hyperclique & 1024 & 3.23 & 7.08 & 2.19$\times$ & 3,195 & 6,842 & \checkmark \\
+ & Random & 64 & 0.55 & 0.55 & 0.99$\times$ & 192 & 192 & \checkmark \\
+ & Random & 256 & 3.84 & 4.50 & 1.17$\times$ & 5,561 & 4,140 & \checkmark \\
+ & Random & 1024 & 58.03 & 49.75 & 0.86$\times$ & 51,457 & 46,469 & \checkmark \\
+\midrule
+$d = 4$ & Trellis & 64 & 3.38 & 3.84 & 1.14$\times$ & 235 & 313 & \checkmark \\
+ & Trellis & 256 & 139.14 & 116.52 & 0.84$\times$ & 6,416 & 7,653 & \checkmark \\
+ & Trellis & 1024 & 5353.91 & 5411.49 & 1.01$\times$ & 197,442 & 293,002 & \checkmark \\
+ & Hyperclique & 64 & 0.00 & 0.56 & 559.00$\times$ & 583 & 291 & \checkmark \\
+ & Hyperclique & 256 & 3.25 & 3.84 & 1.18$\times$ & 5,649 & 7,016 & \checkmark \\
+ & Hyperclique & 1024 & 10.77 & 15.63 & 1.45$\times$ & 24,620 & 34,687 & \checkmark \\
+ & Random & 64 & 0.63 & 0.52 & 0.82$\times$ & 1,134 & 852 & \checkmark \\
+ & Random & 256 & 12.41 & 7.68 & 0.62$\times$ & 12,726 & 10,584 & \checkmark \\
+ & Random & 1024 & 161.22 & 93.77 & 0.58$\times$ & 125,839 & 98,343 & \checkmark \\
+\midrule
+$d = 5$ & Trellis & 64 & 11.12 & 23.19 & 2.09$\times$ & 967 & 1,494 & \checkmark \\
+ & Trellis & 256 & 1303.92 & 1764.80 & 1.35$\times$ & 46,870 & 71,588 & \checkmark \\
+ & Trellis & 1024 & 127831.24 & 121708.64 & 0.95$\times$ & 3,496,411 & 10,633,682 & \checkmark \\
+ & Hyperclique & 64 & 2.17 & 3.24 & 1.50$\times$ & 521 & 1,762 & \checkmark \\
+ & Hyperclique & 256 & 2.66 & 7.59 & 2.86$\times$ & 1,960 & 7,609 & \checkmark \\
+ & Hyperclique & 1024 & 7.43 & 25.05 & 3.37$\times$ & 6,301 & 27,134 & \checkmark \\
+ & Random & 64 & 0.73 & 0.41 & 0.56$\times$ & 3,632 & 2,300 & \checkmark \\
+ & Random & 256 & 7.82 & 4.41 & 0.56$\times$ & 30,467 & 24,524 & \checkmark \\
+ & Random & 1024 & 110.77 & 61.55 & 0.56$\times$ & 294,897 & 234,387 & \checkmark \\
+\midrule
+$d = 6$ & Trellis & 64 & 109.15 & 137.69 & 1.26$\times$ & 2,922 & 4,639 & \checkmark \\
+ & Trellis & 256 & 15215.36 & 22361.79 & 1.47$\times$ & 314,052 & 803,772 & \checkmark \\
+ & Trellis & 1024 & 2309199.89 & 7375571.80 & 3.19$\times$ & 43,488,315 & 125,206,492 & \checkmark \\
+ & Hyperclique & 64 & 6.38 & 5.06 & 0.79$\times$ & 3,161 & 4,238 & \checkmark \\
+ & Hyperclique & 256 & 69.89 & 96.44 & 1.38$\times$ & 73,754 & 113,352 & \checkmark \\
+ & Hyperclique & 1024 & 166.74 & 165.86 & 0.99$\times$ & 214,973 & 266,877 & \checkmark \\
+ & Random & 64 & 0.63 & 0.55 & 0.87$\times$ & 5,040 & 5,520 & \checkmark \\
+ & Random & 256 & 10.48 & 1.02 & 0.10$\times$ & 54,610 & 44,350 & \checkmark \\
+ & Random & 1024 & 115.06 & 57.11 & 0.50$\times$ & 487,509 & 377,889 & \checkmark \\
+\bottomrule
+\end{tabular}
+\end{table*}

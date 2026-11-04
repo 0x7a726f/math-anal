@@ -1,0 +1,10 @@
+{
+  "status": "VERIFIED_100_PERCENT_EXACT",
+  "total_tested": 2000,
+  "three_way_exact_matches": 300,
+  "two_way_exact_matches": 2000,
+  "mismatches": 0,
+  "max_abs_error": 0,
+  "avg_trace_eval_us": 109.98,
+  "total_duration_sec": 0.73
+}

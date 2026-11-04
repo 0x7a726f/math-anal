@@ -1,0 +1,13 @@
+# Build artifacts
+*.exe
+*.o
+*.obj
+build/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS artifacts
+.DS_Store
+Thumbs.db
