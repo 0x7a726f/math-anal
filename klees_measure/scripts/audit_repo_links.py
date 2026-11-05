@@ -352,5 +352,13 @@ def audit_repo(repo_root: str):
         return 0
 
 if __name__ == '__main__':
-    target_repo = sys.argv[1] if len(sys.argv) > 1 else os.getcwd()
+    if len(sys.argv) > 1:
+        target_repo = sys.argv[1]
+    else:
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        candidate = os.path.abspath(os.path.join(script_dir, ".."))
+        if os.path.exists(os.path.join(candidate, "paper")) or os.path.exists(os.path.join(candidate, "klees_measure")):
+            target_repo = candidate
+        else:
+            target_repo = os.getcwd()
     sys.exit(audit_repo(target_repo))

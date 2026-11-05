@@ -38,9 +38,13 @@ FILES_TO_INCLUDE = [
     ("paper/figure4_cross_dim_runtime.png", "paper/figure4_cross_dim_runtime.png"),
     ("paper/figure5_face_reduction.png", "paper/figure5_face_reduction.png"),
     ("paper/figure6_empirical_speedup.png", "paper/figure6_empirical_speedup.png"),
+    ("paper/figure7_ultrascale_scaling.png", "paper/figure7_ultrascale_scaling.png"),
+    ("paper/figure8_random_geometry_speedup.png", "paper/figure8_random_geometry_speedup.png"),
     ("paper/table1_leaderboard.tex", "paper/table1_leaderboard.tex"),
     ("paper/table2_ablation.tex", "paper/table2_ablation.tex"),
     ("paper/table3_cross_dim_scaling.tex", "paper/table3_cross_dim_scaling.tex"),
+    ("paper/table4_ultrascale.tex", "paper/table4_ultrascale.tex"),
+    ("paper/table5_random_geometry.tex", "paper/table5_random_geometry.tex"),
     
     # Tests, Proofs & Certificates
     ("tests/verify_clean_cell.py", "tests/verify_clean_cell.py"),
@@ -59,16 +63,29 @@ FILES_TO_INCLUDE = [
     ("research/GRAVEYARD.md", "research/GRAVEYARD.md"),
     ("data/scaling_matrix.json", "data/scaling_matrix.json"),
     ("data/cross_dim_scaling.json", "data/cross_dim_scaling.json"),
+    ("data/ultrascale_benchmark_results.json", "data/ultrascale_benchmark_results.json"),
+    ("data/random_geometry_benchmark_results.json", "data/random_geometry_benchmark_results.json"),
     ("data/wave1_results.json", "data/wave1_results.json"),
     ("data/wave2_results.json", "data/wave2_results.json"),
     ("data/campaign_200_results.json", "data/campaign_200_results.json"),
     ("data/campaign_h156_h355_ledger.json", "data/campaign_h156_h355_ledger.json"),
     ("benchmarks/scaling_grid.cpp", "benchmarks/scaling_grid.cpp"),
+    ("benchmarks/bench_ultrascale.cpp", "benchmarks/bench_ultrascale.cpp"),
+    ("benchmarks/bench_random_geometry.cpp", "benchmarks/bench_random_geometry.cpp"),
+
+    # Formal Lean 4 Interactive Proofs
+    ("formal/lean/README.md", "formal/lean/README.md"),
+    ("formal/lean/HYPERGRAPH_THEORY.md", "formal/lean/HYPERGRAPH_THEORY.md"),
+    ("formal/lean/KMP_CleanCell.lean", "formal/lean/KMP_CleanCell.lean"),
+    ("formal/lean/KMP_Hypergraph.lean", "formal/lean/KMP_Hypergraph.lean"),
     
     # Build & Reproduction
     ("CMakeLists.txt", "CMakeLists.txt"),
     ("reproduce_all.py", "reproduce_all.py"),
     ("README.md", "README.md"),
+    ("scripts/run_ultrascale_benchmarks.py", "scripts/run_ultrascale_benchmarks.py"),
+    ("scripts/run_random_geometry_benchmarks.py", "scripts/run_random_geometry_benchmarks.py"),
+    ("scripts/audit_repo_links.py", "scripts/audit_repo_links.py"),
 ]
 
 def main():
