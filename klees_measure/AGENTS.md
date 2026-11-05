@@ -3,8 +3,8 @@
 Welcome to the Klee's Measure Problem (KMP) Autonomous Research Station.
 
 ## Epistemic Memory
-- @[Current Pareto Leaderboard](research/LEADERBOARD.md)
-- @[Graveyard of Falsified Hypotheses](research/GRAVEYARD.md)
+- [Current Pareto Leaderboard](research/LEADERBOARD.md)
+- [Graveyard of Falsified Hypotheses](research/GRAVEYARD.md)
 
 ## Hard Invariants & Scientific Guardrails
 1. **IMMUTABLE INFRASTRUCTURE**: NEVER modify any files in `harness/` or `scripts/`. All algorithmic discovery MUST be expressed strictly inside `solver/split_policy.hpp`.

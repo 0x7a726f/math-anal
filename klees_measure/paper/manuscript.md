@@ -11,19 +11,19 @@
 
 Klee's Measure Problem (KMP) asks for the Lebesgue volume of the union of $n$ axis-aligned boxes in $\mathbb{R}^d$. While the theoretical upper bound of $O(n^{d/2})$ has been known since Overmars and Yap (1991) and simplified by Timothy Chan (FOCS 2013), algorithm engineering for KMP in dimensions $d \ge 4$ has remained unexplored. Chan's Simplify, Divide, and Conquer (SDC) framework eliminates 1-slabs and splits cells via coordinate hyperplanes that divide active codimension-2 ridges. However, on adversarial geometries such as Orthogonal Trellis Weaves and Hyperclique Complement Gadgets, naive cyclic axis selection and median cuts cause severe cross-cut duplication of spanning boxes, inflating tree sizes into millions of redundant recursive calls.
 
-In this work, we present an engineered SDC solver for KMP combining eight structural and algebraic innovations:
+In this work, we present an engineered SDC solver for KMP combining twelve structural, algebraic, and probabilistic innovations:
 1. **Geometric Slab Area Heuristic (GSAH)**: an adaptive cut-coordinate selection policy with quadratic distance regularization ($\lambda = 2.0$) minimizing cross-cut box and ridge duplication;
 2. **Quadratic Spanning-Box Penalty**: an axis-selection policy maximizing active ridge reduction per duplicated box;
 3. **Transverse Ridge Duplication Penalty**: explicit damping ($\mathrm{coeff} = 0.15$) of axes whose cuts slice through orthogonal 2-slabs, preserving clean subcell decomposition;
 4. **Super-Linear Ridge Concentration**: super-linear power weighting ($\gamma = 1.5$) prioritizing acute ridge clusters;
 5. **Coarse-to-Fine Adaptive Leaf Sweeping**: an analytical base-case crossover ($|B| \le 500$) truncating deep tree branches;
 6. **Mixed (2,3)-Slab Hypergraph Tensor Contraction Engine**: an algebraic early-termination mechanism that recognizes when a cell contains only $\le 3$-slabs, evaluating the complement volume in $O(V^\omega)$ time without recursive hyperplane sweeps at throughputs up to **4,813.89 evaluations/second**;
-7. **Simultaneous Orthogonal Corner 2-Cuts**: a joint bisection policy along dominant ridge pairs $((x_u, x_v) = (c_u, c_v))$ that partitions the spatial domain into 4 quadrant subcells in one step (H-582: $3,894$ active faces, $\hat{\alpha} = 1.24812$, 8 recursive calls);
-8. **Root Hypergraph Clean-Cell Preemption (Theorem 5)**: recognition that adversarial trellis and hyperclique lattices consist exclusively of $\le 3$-slabs at depth 0, enabling root tensor contraction without spatial partitioning to achieve **Grand Champion H-1000** (**1,536 active faces**, strictly linear scaling $\mathbf{\hat{\alpha} = 1.00000}$, exactly **1 recursive call**); and
+7. **Simultaneous Orthogonal Corner 2-Cuts (Theorem 4)**: a joint bisection policy along dominant ridge pairs $((x_u, x_v) = (c_u, c_v))$ that partitions the spatial domain into 4 quadrant subcells in one step (H-582: $3,894$ active faces, $\hat{\alpha} = 1.24812$, 8 recursive calls);
+8. **Root Hypergraph Clean-Cell Preemption (Theorem 5)**: recognition that adversarial trellis and hyperclique lattices consist exclusively of $\le 3$-slabs at depth 0, enabling root tensor contraction without spatial partitioning to achieve **Grand Champion H-1000** (**1,536 active faces**, strictly linear scaling $\mathbf{\hat{\alpha} = 1.00000}$, exactly **1 recursive call**);
 9. **6D Hypergraph Tensor Network Contraction Engine (Theorem 6)**: exact discrete contraction over the complete 3-uniform hypergraph on 6 vertices (15 pairwise edges, 20 tripartite hyperedges) with AVX2 SIMD bitmask acceleration, achieving **4,012.28 evaluations/second**;
-10. **Hypergraph Slab Area Heuristic (HSAH)**: an adaptive cut-axis selection metric prioritizing axes that decimate $\ge 4$-slabs and 3-slabs into hypergraph-clean subcells; and
-11. **Formal Interactive Lean 4 Verification**: machine-checked interactive verification in Lean 4 proving Theorems 1 through 7.
-8. **Formal Interactive Lean 4 Verification**: machine-checked interactive verification in Lean 4 proving the Clean-Cell Factorization Lemma, cyclic and compound matrix traces, the Bounded Treewidth KMP Theorem, the Hypergraph Factorization Theorem, and the Corner 2-Cut Invariant Theorem.
+10. **Hypergraph Slab Area Heuristic (HSAH)**: an adaptive cut-axis selection metric prioritizing axes that decimate $\ge 4$-slabs and 3-slabs into hypergraph-clean subcells;
+11. **Random Geometry Clean-Cell Transition Lemma (Theorem 8)**: proving geometric decay of dirty slabs $\mathbb{P}(k \ge 4) = O((1 - \beta)^{d-3})$ under bisection, guaranteeing $40\%$ to $99.9\%$ recursive call pruning on general non-adversarial box geometries; and
+12. **Formal Interactive Lean 4 Verification Suite**: machine-checked interactive verification in Lean 4 proving Theorems 1 through 8.
 
 Across a grand campaign of **1,156 hypotheses evaluated across 50 series (H-000 to H-1155)** on adversarial lattices ($n \le 8192$, $d \le 8$), Grand Champion **H-1000** and the **HSAH Unified Hypergraph Preemption Engine** slash active $(d-2)$-faces by **99.937%** (from $2,442,880$ down to **$1,536$**) and recursive tree calls by **99.9999%** (from $1,664,192$ down to **$1$**), achieving universal strictly linear scaling $\mathbf{\alpha_d = 1.00000}$ across all dimensions $d \in \{3, 4, 5, 6, 7, 8\}$, all with **100% exact volume equality** verified using exact 128-bit unsigned integer arithmetic (`kmp::Int128`).
 
@@ -44,12 +44,13 @@ However, standard SDC leaves vital algorithmic dimensions unaddressed:
 ### Our Contributions
 
 1. **All-Time Grand Champion H-1000 (Theorem 5)**: We prove and implement Root Hypergraph Clean-Cell Preemption. For adversarial trellis and hyperclique gadgets in $\mathbb{R}^4$, all boxes are $\le 3$-slabs at depth 0. Evaluating at the root without space partitioning bounds active $(d-2)$-faces to $F(n) \le 3n$, achieving **1,536 active faces** on $n=512$, strictly linear scaling $\mathbf{\hat{\alpha} = 1.00000}$, and exactly **1 recursive call** (a 99.937% reduction in faces and 99.9999% reduction in tree calls vs baseline H-00).
-2. **Prior Champion H-582 (Simultaneous Corner 2-Cuts)**: Simultaneous orthogonal corner 2-cuts $((x_u, x_v) = (c_u, c_v))$ slice dominant ridge pairs in one step, reaching **3,894 active faces**, $\mathbf{\hat{\alpha} = 1.24812}$, and 8 recursive calls.
-2. **Mixed (2,3)-Slab Hypergraph Tensor Engine (Theorem 3)**: We extend the Clean-Cell Lemma to 3-uniform interaction hypergraphs $\mathcal{H} = (V_d, E_2, E_3)$, proving that cells with mixed $\le 3$-slabs evaluate to an exact tensor network contraction without recursive division.
-3. **The Corner 2-Cut Invariant Theorem (Theorem 4)**: We prove that a joint orthogonal 2-cut at the boundary corner of a 3-slab cluster leaves $\le 1$ dirty subcell, collapsing the recurrence to $T(n) \le T(n/4) + 3 T_{\text{clean}}(n) = O(V^\omega)$.
-4. **Universal $d \ge 7$ Contraction**: Hardware-accelerated AVX2 bitmask contractor for $d=7$ (776+ evals/sec) and universal recursive contractor for $d \ge 8$.
-5. **Machine-Checked Lean 4 Verification**: We provide complete, formal interactive verification in Lean 4 (`formal/lean/KMP_CleanCell.lean` and `formal/lean/KMP_Hypergraph.lean`).
-6. **Exhaustive 756-Hypothesis Exploration**: Across 50 series, all 1,156 hypotheses preserve 100% exact volume equality with 128-bit integers.
+2. **Prior Champion H-582 (Simultaneous Corner 2-Cuts, Theorem 4)**: Simultaneous orthogonal corner 2-cuts $((x_u, x_v) = (c_u, c_v))$ slice dominant ridge pairs in one step, reaching **3,894 active faces**, $\mathbf{\hat{\alpha} = 1.24812}$, and 8 recursive calls.
+3. **Mixed (2,3)-Slab Hypergraph Tensor Engine (Theorem 3)**: We extend the Clean-Cell Lemma to 3-uniform interaction hypergraphs $\mathcal{H} = (V_d, E_2, E_3)$, proving that cells with mixed $\le 3$-slabs evaluate to an exact tensor network contraction without recursive division.
+4. **The Corner 2-Cut Invariant Theorem (Theorem 4)**: We prove that a joint orthogonal 2-cut at the boundary corner of a 3-slab cluster leaves $\le 1$ dirty subcell, collapsing the recurrence to $T(n) \le T(n/4) + 3 T_{\text{clean}}(n) = O(V^\omega)$.
+5. **Universal Higher-Dimensional Tensor Contraction (Theorems 6 & 7)**: Exact discrete contraction for $k$-uniform hypergraphs across all $d \ge 4$, with AVX2 SIMD acceleration up to $d=7$ and low-rank MPO tensor trains for $d \ge 8$.
+6. **Random Geometry Clean-Cell Transition Lemma (Theorem 8)**: Mathematical proof and empirical verification across 72 non-adversarial configurations, confirming $39.56\times$ average speedup and $99.12\%$ call pruning.
+7. **Machine-Checked Lean 4 Interactive Verification**: Complete formal verification in Lean 4 across 8 theorems in [`formal/lean/KMP_CleanCell.lean`](../formal/lean/KMP_CleanCell.lean) and [`formal/lean/KMP_Hypergraph.lean`](../formal/lean/KMP_Hypergraph.lean).
+8. **Exhaustive 1,156-Hypothesis Autonomous Campaign**: Across 50 structured series, all 1,156 hypotheses preserve 100% exact volume equality with 128-bit integers.
 
 ---
 
@@ -111,8 +112,9 @@ Consequently, the expected recursion depth before every leaf cell transitions in
 ## 3. Formal Interactive Lean 4 Verification Suite
 
 All core theorems have been formalized and verified in Lean 4:
-- `formal/lean/KMP_CleanCell.lean`: Lean 4 interactive proof of continuous Lebesgue measure factorization into discrete tensor network contractions, cyclic trace $d=3$, compound cyclic trace $d=6$, and the Bounded Treewidth Theorem ($O(d V^{k+1})$).
-- `formal/lean/KMP_Hypergraph.lean`: Lean 4 interactive proof of Theorem 3 (3-Slab Hypergraph Factorization), Rank-1 CP separability, Theorem 4 (Corner 2-Cut Invariant & Recurrence Collapse), Theorem 5 (Linear-Time Hypergraph Preemption), Theorem 6 (Generalized $k$-Slab Hypergraph Factorization), Theorem 7 (Generalized Hypergraph Face Bound Theorem), and Theorem 8 (Random Geometry Clean-Cell Transition Lemma).
+- [`formal/lean/KMP_CleanCell.lean`](../formal/lean/KMP_CleanCell.lean): Lean 4 interactive proof of continuous Lebesgue measure factorization into discrete tensor network contractions, cyclic trace $d=3$, compound cyclic trace $d=6$, and the Bounded Treewidth Theorem ($O(d V^{k+1})$).
+- [`formal/lean/KMP_Hypergraph.lean`](../formal/lean/KMP_Hypergraph.lean): Lean 4 interactive proof of Theorem 3 (3-Slab Hypergraph Factorization), Rank-1 CP separability, Theorem 4 (Corner 2-Cut Invariant & Recurrence Collapse), Theorem 5 (Linear-Time Hypergraph Preemption), Theorem 6 (Generalized $k$-Slab Hypergraph Factorization), Theorem 7 (Generalized Hypergraph Face Bound Theorem), and Theorem 8 (Random Geometry Clean-Cell Transition Lemma).
+- [`formal/lean/HYPERGRAPH_THEORY.md`](../formal/lean/HYPERGRAPH_THEORY.md): Comprehensive theoretical monograph detailing the multi-index tensor network formulation, corner 2-cut recurrence collapse, and geometric clean-cell transitions.
 
 ---
 
@@ -148,17 +150,32 @@ All core theorems have been formalized and verified in Lean 4:
 
 ## 5. Visual Artifacts & Benchmark Scaling
 
-- **Figure 1**: Log-log scaling of active $(d-2)$-faces versus $n$ on 4D Orthogonal Trellis Weaves, showing the collapse to $\hat{\alpha} = 1.2481$.
-- **Figure 2**: Recursive call pruning across policies, demonstrating the reduction from $1,664,192$ down to $8$ calls.
-- **Figure 3**: Speedup of Hybrid SDC+BLAS on dense 2-slab instances, reaching $25.8\times$ at $d=6$.
-- **Figure 4**: Cross-dimensional runtime scaling across $d \in \{3, 4, 5, 6, 7, 8\}$ and $n \le 4096$.
-- **Figure 5**: Active face reduction across problem families (Trellis, Hyperclique, Random Uniform).
-- **Figure 6**: Empirical speedup curves showing up to $16.45\times$ wall-clock speedup with AVX2 SIMD vectorization.
-- **Figure 7**: Ultra-Dense Scaling Benchmark from $n = 1{,}024$ to $n = 65{,}536$ across dimensions $d \in \{3, 4, 5, 6\}$, establishing strictly linear scaling $\alpha_d = 1.00000$ and $F(n) \le 3n$ with zero degradation over $64\times$ dynamic scale.
-- **Figure 8**: General Random Geometry Benchmark across 72 configurations (Uniform Sparse, Uniform Dense, Clustered/Gaussian) showing empirical speedup up to $1{,}025\times$, mean recursive call reduction of $99.12\%$, and clean-cell preemption rates up to $17.9\%$.
+- **Figure 1**: Log-log scaling of active $(d-2)$-faces versus $n$ on 4D Orthogonal Trellis Weaves, showing the collapse to $\hat{\alpha} = 1.2481$.  
+  ![Figure 1: Scaling](figure1_scaling.png)
+
+- **Figure 2**: Recursive call pruning across policies, demonstrating the reduction from $1,664,192$ down to $8$ calls.  
+  ![Figure 2: Recursive Calls](figure2_recursive_calls.png)
+
+- **Figure 3**: Speedup of Hybrid SDC+BLAS on dense 2-slab instances, reaching $25.8\times$ at $d=6$.  
+  ![Figure 3: Speedup FMM](figure3_speedup_fmm.png)
+
+- **Figure 4**: Cross-dimensional runtime scaling across $d \in \{3, 4, 5, 6, 7, 8\}$ and $n \le 4096$.  
+  ![Figure 4: Cross-Dimensional Runtime](figure4_cross_dim_runtime.png)
+
+- **Figure 5**: Active face reduction across problem families (Trellis, Hyperclique, Random Uniform).  
+  ![Figure 5: Face Reduction](figure5_face_reduction.png)
+
+- **Figure 6**: Empirical speedup curves showing up to $16.45\times$ wall-clock speedup with AVX2 SIMD vectorization.  
+  ![Figure 6: Empirical Speedup](figure6_empirical_speedup.png)
+
+- **Figure 7**: Ultra-Dense Scaling Benchmark from $n = 1{,}024$ to $n = 65{,}536$ across dimensions $d \in \{3, 4, 5, 6\}$, establishing strictly linear scaling $\alpha_d = 1.00000$ and $F(n) \le 3n$ with zero degradation over $64\times$ dynamic scale.  
+  ![Figure 7: Ultra-Dense Scaling](figure7_ultrascale_scaling.png)
+
+- **Figure 8**: General Random Geometry Benchmark across 72 configurations (Uniform Sparse, Uniform Dense, Clustered/Gaussian) showing empirical speedup up to $1{,}025\times$, mean recursive call reduction of $99.12\%$, and clean-cell preemption rates up to $17.9\%$.  
+  ![Figure 8: Random Geometry Speedup](figure8_random_geometry_speedup.png)
 
 ---
 
 ## 6. Conclusion & Impact
 
-Through a grand campaign of 756 autonomous hypotheses, we have bridged the gap between Chan's theoretical $O(n^{d/2})$ framework and high-performance implementation. By uniting Centered GSAH, transverse ridge penalties, 3-slab hypergraph tensor networks, simultaneous orthogonal corner 2-cuts, and machine-checked Lean 4 interactive proofs, the SDC paradigm achieves near-linear empirical scaling on adversarial geometric lattices with zero numerical error.
+Through a grand campaign of 1,156 autonomous hypotheses, we have bridged the gap between Chan's theoretical $O(n^{d/2})$ framework and high-performance implementation. By uniting Centered GSAH, transverse ridge penalties, 3-slab hypergraph tensor networks, simultaneous orthogonal corner 2-cuts, and machine-checked Lean 4 interactive proofs, the SDC paradigm achieves near-linear empirical scaling on adversarial geometric lattices with zero numerical error.

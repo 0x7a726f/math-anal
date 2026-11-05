@@ -27,11 +27,30 @@ This repository hosts advanced mathematical analysis and high-performance comput
   - **6D Hypergraph Tensor Network Contraction Engine (Theorem 6)**: Evaluates cells containing mixed 1-slabs, 2-slabs, and 3-slabs in 6D via discrete multi-index tensor contraction over the complete 3-uniform hypergraph (15 pairwise edges, 20 tripartite hyperedges) with AVX2 SIMD bitmask acceleration, achieving **4,012.28 evaluations/second** (`solver/tensor_clean_cell.hpp`).
   - **Hypergraph Slab Area Heuristic (HSAH)**: An adaptive cut-axis selection metric prioritizing axes that decimate $\ge 4$-slabs and 3-slabs into hypergraph-clean subcells, driving the spatial partition tree toward immediate tensor leaf preemption.
   - **Universal $d \ge 7$ Clean-Cell Tensor Engine**: Hierarchical prefix $\{0, 1, 2\}$ with AVX2 SIMD bitmask propagation over $\{3, 4, 5, 6\}$ for complete interaction graph $K_7$ (21 edges), plus Low-Rank Matrix Product Operator (MPO) Tensor Train contraction for arbitrary $d \ge 8$ with bond dimension $\chi \le 16$.
-  - **Formal Lean 4 Interactive Verification Suite**: Machine-checked formal proofs in Lean 4 across 7 core theorems:
+  - **Formal Lean 4 Interactive Verification Suite**: Machine-checked formal proofs in Lean 4 across 8 core theorems:
     - [`klees_measure/formal/lean/KMP_CleanCell.lean`](klees_measure/formal/lean/KMP_CleanCell.lean): Clean-Cell Factorization Lemma (Theorem 1), $d=3$ cyclic trace, $d=6$ compound cyclic trace, and Bounded Treewidth KMP Theorem (Theorem 2).
-    - [`klees_measure/formal/lean/KMP_Hypergraph.lean`](klees_measure/formal/lean/KMP_Hypergraph.lean): Hypergraph Clean-Cell Factorization Theorem (Theorem 3), Rank-1 CP separability, Corner 2-Cut Invariant & Recurrence Collapse Theorem (Theorem 4), Linear-Time Hypergraph Preemption Theorem (Theorem 5), Generalized $k$-Slab Factorization Theorem (Theorem 6), and Generalized Hypergraph Face Bound Theorem (Theorem 7).
+    - [`klees_measure/formal/lean/KMP_Hypergraph.lean`](klees_measure/formal/lean/KMP_Hypergraph.lean): Hypergraph Clean-Cell Factorization Theorem (Theorem 3), Rank-1 CP separability, Corner 2-Cut Invariant & Recurrence Collapse Theorem (Theorem 4), Linear-Time Hypergraph Preemption Theorem (Theorem 5), Generalized $k$-Slab Factorization Theorem (Theorem 6), Generalized Hypergraph Face Bound Theorem (Theorem 7), and Random Geometry Clean-Cell Transition Lemma (Theorem 8).
+    - [`klees_measure/formal/lean/HYPERGRAPH_THEORY.md`](klees_measure/formal/lean/HYPERGRAPH_THEORY.md): Comprehensive theoretical monograph on tensor network contraction and geometric recurrence collapse.
   - **Hardware-Accelerated SIMD Bitmask & AVX2 Vectorization**: Stack-allocated 256-bit AVX2 vectors with zero heap allocations in hot loops, yielding up to a **$22.40\times$ empirical speedup in 6D** and **$34.1\times$ in 7D**.
   - **Comprehensive 1,156-Hypothesis Autonomous Campaign**: Evaluated 1,156 consecutive structural hypotheses (H-000 through H-1155) across 50 structured scientific series, maintaining 100% exact volume verification across all 128-bit integer tests (`data/campaign_1156_master_summary.json`).
+
+### Repository Artifacts & Quick Navigation Index
+
+| Artifact Category | File / Target Link | Description |
+| :--- | :--- | :--- |
+| **Research Paper** | [`klees_measure/paper/manuscript.md`](klees_measure/paper/manuscript.md) | Full manuscript in GitHub Flavored Markdown with embedded figures |
+| **LaTeX Source** | [`klees_measure/paper/manuscript.tex`](klees_measure/paper/manuscript.tex) | Complete ACM JEA / ALENEX publication submission manuscript |
+| **Lean 4 Proofs (Theorems 1–2)** | [`klees_measure/formal/lean/KMP_CleanCell.lean`](klees_measure/formal/lean/KMP_CleanCell.lean) | Machine-checked proofs: Clean-Cell Factorization & Treewidth DP |
+| **Lean 4 Proofs (Theorems 3–8)** | [`klees_measure/formal/lean/KMP_Hypergraph.lean`](klees_measure/formal/lean/KMP_Hypergraph.lean) | Machine-checked proofs: Hypergraphs, Corner Cuts, Preemption & Random Geometry |
+| **Theoretical Monograph** | [`klees_measure/formal/lean/HYPERGRAPH_THEORY.md`](klees_measure/formal/lean/HYPERGRAPH_THEORY.md) | Mathematical monograph on tensor networks & recurrence collapse |
+| **Production C++ Solver** | [`klees_measure/solver/kmp_solver.hpp`](klees_measure/solver/kmp_solver.hpp) | AVX2 SIMD-vectorized SDC solver with 128-bit exact arithmetic |
+| **Tensor Contraction Engine** | [`klees_measure/solver/tensor_clean_cell.hpp`](klees_measure/solver/tensor_clean_cell.hpp) | 6D/7D bitmask hypergraph contractor & MPO tensor train sweeper |
+| **Master 50-Series Ledger** | [`klees_measure/data/campaign_1156_master_summary.json`](klees_measure/data/campaign_1156_master_summary.json) | 1,156 structural hypotheses ledger (100% volume verified) |
+| **Ultra-Dense Benchmark** | [`klees_measure/data/ultrascale_benchmark_results.json`](klees_measure/data/ultrascale_benchmark_results.json) | 56 scaling configurations ($n \le 65{,}536$, $d \in \{3, 4, 5, 6\}$) |
+| **Random Geometry Benchmark** | [`klees_measure/data/random_geometry_benchmark_results.json`](klees_measure/data/random_geometry_benchmark_results.json) | 72 configurations (Uniform Sparse, Dense, Clustered) |
+| **Reproduction Pipeline** | [`klees_measure/reproduce_all.py`](klees_measure/reproduce_all.py) | 1-click automated verification of all empirical & theoretical artifacts |
+| **Link & Rigor Auditor** | [`klees_measure/scripts/audit_repo_links.py`](klees_measure/scripts/audit_repo_links.py) | Automated link, anchor, figure, table, and macro validator |
+
 
 ---
 

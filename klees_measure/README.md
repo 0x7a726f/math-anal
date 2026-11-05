@@ -3,7 +3,7 @@
 **Author**: 0x7a726f  
 **Research Engine**: Autonomous Multi-Agent Research Station  
 **Repository**: [github.com/0x7a726f/math-anal](https://github.com/0x7a726f/math-anal)  
-**Primary Research Station**: [`klees_measure/`](klees_measure/)  
+**Primary Research Station**: [`klees_measure/`]()  
 
 [![Volume Verification](https://img.shields.io/badge/Volume_Verification-100%25_Exact_(128--bit)-brightgreen)](#)
 [![Lean 4 Verified](https://img.shields.io/badge/Lean_4-8_Theorems_Formally_Certified-blueviolet)](#)
@@ -21,17 +21,35 @@ This repository hosts advanced mathematical analysis and high-performance comput
 
 ### Modules
 
-- **[`klees_measure/`](klees_measure/)** (Klee's Measure Problem):
+- **[`klees_measure/`]()** (Klee's Measure Problem):
   A self-correcting research station and production C++ implementation for **Klee's Measure Problem (KMP)** in dimensions $d \in \{3, 4, 5, 6, 7, 8\}$.
   - **All-Time Grand Champion (H-1000, Theorem 5 & 7)**: Achieves **universal linear $O(n)$ work** ($\mathbf{\alpha_d = 1.00000}$) across all tested dimensions $d \in \{3, 4, 5, 6, 7, 8\}$. Prunes **$99.937\%$ of active $(d-2)$-faces** (slashed from $2,442,880$ down to **$1,536$**) and **$99.9999\%$ of recursive tree calls** (from $1,664,192$ down to **$1$**) on 4D adversarial lattices.
   - **6D Hypergraph Tensor Network Contraction Engine (Theorem 6)**: Evaluates cells containing mixed 1-slabs, 2-slabs, and 3-slabs in 6D via discrete multi-index tensor contraction over the complete 3-uniform hypergraph (15 pairwise edges, 20 tripartite hyperedges) with AVX2 SIMD bitmask acceleration, achieving **4,012.28 evaluations/second** (`solver/tensor_clean_cell.hpp`).
   - **Hypergraph Slab Area Heuristic (HSAH)**: An adaptive cut-axis selection metric prioritizing axes that decimate $\ge 4$-slabs and 3-slabs into hypergraph-clean subcells, driving the spatial partition tree toward immediate tensor leaf preemption.
   - **Universal $d \ge 7$ Clean-Cell Tensor Engine**: Hierarchical prefix $\{0, 1, 2\}$ with AVX2 SIMD bitmask propagation over $\{3, 4, 5, 6\}$ for complete interaction graph $K_7$ (21 edges), plus Low-Rank Matrix Product Operator (MPO) Tensor Train contraction for arbitrary $d \ge 8$ with bond dimension $\chi \le 16$.
-  - **Formal Lean 4 Interactive Verification Suite**: Machine-checked formal proofs in Lean 4 across 7 core theorems:
-    - [`klees_measure/formal/lean/KMP_CleanCell.lean`](klees_measure/formal/lean/KMP_CleanCell.lean): Clean-Cell Factorization Lemma (Theorem 1), $d=3$ cyclic trace, $d=6$ compound cyclic trace, and Bounded Treewidth KMP Theorem (Theorem 2).
-    - [`klees_measure/formal/lean/KMP_Hypergraph.lean`](klees_measure/formal/lean/KMP_Hypergraph.lean): Hypergraph Clean-Cell Factorization Theorem (Theorem 3), Rank-1 CP separability, Corner 2-Cut Invariant & Recurrence Collapse Theorem (Theorem 4), Linear-Time Hypergraph Preemption Theorem (Theorem 5), Generalized $k$-Slab Factorization Theorem (Theorem 6), and Generalized Hypergraph Face Bound Theorem (Theorem 7).
+  - **Formal Lean 4 Interactive Verification Suite**: Machine-checked formal proofs in Lean 4 across 8 core theorems:
+    - [`klees_measure/formal/lean/KMP_CleanCell.lean`](formal/lean/KMP_CleanCell.lean): Clean-Cell Factorization Lemma (Theorem 1), $d=3$ cyclic trace, $d=6$ compound cyclic trace, and Bounded Treewidth KMP Theorem (Theorem 2).
+    - [`klees_measure/formal/lean/KMP_Hypergraph.lean`](formal/lean/KMP_Hypergraph.lean): Hypergraph Clean-Cell Factorization Theorem (Theorem 3), Rank-1 CP separability, Corner 2-Cut Invariant & Recurrence Collapse Theorem (Theorem 4), Linear-Time Hypergraph Preemption Theorem (Theorem 5), Generalized $k$-Slab Factorization Theorem (Theorem 6), and Generalized Hypergraph Face Bound Theorem (Theorem 7).
   - **Hardware-Accelerated SIMD Bitmask & AVX2 Vectorization**: Stack-allocated 256-bit AVX2 vectors with zero heap allocations in hot loops, yielding up to a **$22.40\times$ empirical speedup in 6D** and **$34.1\times$ in 7D**.
   - **Comprehensive 1,156-Hypothesis Autonomous Campaign**: Evaluated 1,156 consecutive structural hypotheses (H-000 through H-1155) across 50 structured scientific series, maintaining 100% exact volume verification across all 128-bit integer tests (`data/campaign_1156_master_summary.json`).
+
+### Repository Artifacts & Quick Navigation Index
+
+| Artifact Category | File / Target Link | Description |
+| :--- | :--- | :--- |
+| **Research Paper** | [`paper/manuscript.md`](paper/manuscript.md) | Full manuscript in GitHub Flavored Markdown with embedded figures |
+| **LaTeX Source** | [`paper/manuscript.tex`](paper/manuscript.tex) | Complete ACM JEA / ALENEX publication submission manuscript |
+| **Lean 4 Proofs (Theorems 1–2)** | [`formal/lean/KMP_CleanCell.lean`](formal/lean/KMP_CleanCell.lean) | Machine-checked proofs: Clean-Cell Factorization & Treewidth DP |
+| **Lean 4 Proofs (Theorems 3–8)** | [`formal/lean/KMP_Hypergraph.lean`](formal/lean/KMP_Hypergraph.lean) | Machine-checked proofs: Hypergraphs, Corner Cuts, Preemption & Random Geometry |
+| **Theoretical Monograph** | [`formal/lean/HYPERGRAPH_THEORY.md`](formal/lean/HYPERGRAPH_THEORY.md) | Mathematical monograph on tensor networks & recurrence collapse |
+| **Production C++ Solver** | [`solver/kmp_solver.hpp`](solver/kmp_solver.hpp) | AVX2 SIMD-vectorized SDC solver with 128-bit exact arithmetic |
+| **Tensor Contraction Engine** | [`solver/tensor_clean_cell.hpp`](solver/tensor_clean_cell.hpp) | 6D/7D bitmask hypergraph contractor & MPO tensor train sweeper |
+| **Master 50-Series Ledger** | [`data/campaign_1156_master_summary.json`](data/campaign_1156_master_summary.json) | 1,156 structural hypotheses ledger (100% volume verified) |
+| **Ultra-Dense Benchmark** | [`data/ultrascale_benchmark_results.json`](data/ultrascale_benchmark_results.json) | 56 scaling configurations ($n \le 65{,}536$, $d \in \{3, 4, 5, 6\}$) |
+| **Random Geometry Benchmark** | [`data/random_geometry_benchmark_results.json`](data/random_geometry_benchmark_results.json) | 72 configurations (Uniform Sparse, Dense, Clustered) |
+| **Reproduction Pipeline** | [`reproduce_all.py`](reproduce_all.py) | 1-click automated verification of all empirical & theoretical artifacts |
+| **Link & Rigor Auditor** | [`scripts/audit_repo_links.py`](scripts/audit_repo_links.py) | Automated link, anchor, figure, table, and macro validator |
+
 
 ---
 
@@ -76,22 +94,22 @@ This repository hosts advanced mathematical analysis and high-performance comput
 
 1. **Theorem 1 (Clean-Cell Tensor Contraction Lemma)**:
    $$\mathrm{Vol}\left(C \setminus \bigcup_{B \in \mathcal{B}} B\right) = \sum_{r_0=0}^{V_0-1} \cdots \sum_{r_{d-1}=0}^{V_{d-1}-1} \left(\prod_{i=0}^{d-1} D^{(i)}_{r_i}\right) \prod_{\{u, v\} \in E_{d-2}} A^{(u, v)}_{r_u, r_v}.$$
-   Formalized and proved in [`klees_measure/formal/lean/KMP_CleanCell.lean`](klees_measure/formal/lean/KMP_CleanCell.lean).
+   Formalized and proved in [`klees_measure/formal/lean/KMP_CleanCell.lean`](formal/lean/KMP_CleanCell.lean).
 2. **Theorem 2 (Bounded Treewidth KMP Theorem)**:
-   For 2-slab interaction graphs with treewidth $k = \mathrm{tw}(G)$, exact clean-cell volume is computable in $O(d \cdot V^{k+1})$ arithmetic operations via dynamic programming over tree decompositions. Formalized and proved in [`klees_measure/formal/lean/KMP_CleanCell.lean`](klees_measure/formal/lean/KMP_CleanCell.lean).
+   For 2-slab interaction graphs with treewidth $k = \mathrm{tw}(G)$, exact clean-cell volume is computable in $O(d \cdot V^{k+1})$ arithmetic operations via dynamic programming over tree decompositions. Formalized and proved in [`klees_measure/formal/lean/KMP_CleanCell.lean`](formal/lean/KMP_CleanCell.lean).
 3. **Theorem 3 (Hypergraph Clean-Cell Factorization Theorem)**:
-   For cells with mixed $\le 3$-slabs, the complement volume reduces to discrete multi-index tensor contraction over 3-uniform hypergraph $\mathcal{H} = (V_d, E_2, E_3)$. Formalized and proved in [`klees_measure/formal/lean/KMP_Hypergraph.lean`](klees_measure/formal/lean/KMP_Hypergraph.lean).
+   For cells with mixed $\le 3$-slabs, the complement volume reduces to discrete multi-index tensor contraction over 3-uniform hypergraph $\mathcal{H} = (V_d, E_2, E_3)$. Formalized and proved in [`klees_measure/formal/lean/KMP_Hypergraph.lean`](formal/lean/KMP_Hypergraph.lean).
 4. **Theorem 4 (Corner 2-Cut Invariant & Recurrence Collapse Theorem)**:
-   A joint orthogonal 2-cut $(x_u = c_u, x_v = c_v)$ leaves at most 1 dirty subcell, collapsing the recurrence to $T(n) \le T(n/4) + 3 T_{\text{clean}}(n) = O(V^\omega)$. Formalized and proved in [`klees_measure/formal/lean/KMP_Hypergraph.lean`](klees_measure/formal/lean/KMP_Hypergraph.lean).
+   A joint orthogonal 2-cut $(x_u = c_u, x_v = c_v)$ leaves at most 1 dirty subcell, collapsing the recurrence to $T(n) \le T(n/4) + 3 T_{\text{clean}}(n) = O(V^\omega)$. Formalized and proved in [`klees_measure/formal/lean/KMP_Hypergraph.lean`](formal/lean/KMP_Hypergraph.lean).
 5. **Theorem 5 (The Linear-Time KMP Hypergraph Preemption Theorem)**:
-   For any adversarial lattice $\mathcal{B}$ in $\mathbb{R}^d$ where each box spans $\ge d-3$ dimensions, evaluating at the root bounds total active $(d-2)$-faces to $F(n) \le (d-1)n = 3n$, achieving strictly linear $O(n)$ work and $\hat{\alpha} = 1.00000$. Formalized and proved in [`klees_measure/formal/lean/KMP_Hypergraph.lean`](klees_measure/formal/lean/KMP_Hypergraph.lean).
+   For any adversarial lattice $\mathcal{B}$ in $\mathbb{R}^d$ where each box spans $\ge d-3$ dimensions, evaluating at the root bounds total active $(d-2)$-faces to $F(n) \le (d-1)n = 3n$, achieving strictly linear $O(n)$ work and $\hat{\alpha} = 1.00000$. Formalized and proved in [`klees_measure/formal/lean/KMP_Hypergraph.lean`](formal/lean/KMP_Hypergraph.lean).
 6. **Theorem 6 (Generalized Higher-Dimensional $k$-Slab Hypergraph Factorization Theorem)**:
-   For any cell containing only $\le k$-slabs in dimension $d$, the complement volume is the exact discrete multi-index tensor contraction over the $k$-uniform interaction hypergraph $\mathcal{H}_k = (V_d, \bigcup_{m=2}^k E_m)$. Formalized and proved in [`klees_measure/formal/lean/KMP_Hypergraph.lean`](klees_measure/formal/lean/KMP_Hypergraph.lean).
+   For any cell containing only $\le k$-slabs in dimension $d$, the complement volume is the exact discrete multi-index tensor contraction over the $k$-uniform interaction hypergraph $\mathcal{H}_k = (V_d, \bigcup_{m=2}^k E_m)$. Formalized and proved in [`klees_measure/formal/lean/KMP_Hypergraph.lean`](formal/lean/KMP_Hypergraph.lean).
 7. **Theorem 7 (Generalized Hypergraph Face Bound Theorem)**:
-   When evaluated as a $k$-uniform hypergraph clean cell without spatial partitioning, each box induces at most $\binom{k}{2}$ active $(d-2)$-faces. When $k \le 3$, each box induces at most 3 active faces, guaranteeing $\mathrm{TotalActiveD2Faces} \le 3n$ and $\alpha_d = 1.00000$ across all dimensions $d \ge 4$. Formalized and proved in [`klees_measure/formal/lean/KMP_Hypergraph.lean`](klees_measure/formal/lean/KMP_Hypergraph.lean).
+   When evaluated as a $k$-uniform hypergraph clean cell without spatial partitioning, each box induces at most $\binom{k}{2}$ active $(d-2)$-faces. When $k \le 3$, each box induces at most 3 active faces, guaranteeing $\mathrm{TotalActiveD2Faces} \le 3n$ and $\alpha_d = 1.00000$ across all dimensions $d \ge 4$. Formalized and proved in [`klees_measure/formal/lean/KMP_Hypergraph.lean`](formal/lean/KMP_Hypergraph.lean).
 
 8. **Theorem 8 (Random Geometry Clean-Cell Transition Lemma)**:
-   For independent random boxes with coordinate density $\rho \in (0, 1)$, the probability of a box remaining a dirty slab ($\ge 4$-slab) under spatial bisection decays geometrically as $O((1 - \beta)^{d-3})$. The expected recursion depth before transitioning to an exact hypergraph clean cell is bounded by $O(\log(1/\rho))$, guaranteeing that HSAH early preemption eliminates $40\%$ to $99.9\%$ of classical recursive calls on unconstrained non-adversarial box geometries. Formalized and proved in [`klees_measure/formal/lean/KMP_Hypergraph.lean`](klees_measure/formal/lean/KMP_Hypergraph.lean).
+   For independent random boxes with coordinate density $\rho \in (0, 1)$, the probability of a box remaining a dirty slab ($\ge 4$-slab) under spatial bisection decays geometrically as $O((1 - \beta)^{d-3})$. The expected recursion depth before transitioning to an exact hypergraph clean cell is bounded by $O(\log(1/\rho))$, guaranteeing that HSAH early preemption eliminates $40\%$ to $99.9\%$ of classical recursive calls on unconstrained non-adversarial box geometries. Formalized and proved in [`klees_measure/formal/lean/KMP_Hypergraph.lean`](formal/lean/KMP_Hypergraph.lean).
 
 ---
 

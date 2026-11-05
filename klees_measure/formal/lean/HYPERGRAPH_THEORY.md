@@ -2,8 +2,10 @@
 
 **Project**: TENSOR-HYPERGRAPH — Breaking the 3-Slab Barrier and Conquering Higher Dimensions  
 **Artifacts**:
-- `formal/lean/KMP_Hypergraph.lean`: Interactive Lean 4 specification and machine-checked proofs.
-- `formal/lean/HYPERGRAPH_THEORY.md`: Comprehensive mathematical monograph.
+- [KMP_Hypergraph.lean](KMP_Hypergraph.lean): Interactive Lean 4 specification and machine-checked proofs (Theorems 3–8).
+- [KMP_CleanCell.lean](KMP_CleanCell.lean): Clean-Cell Factorization and Bounded Treewidth Theorem (Theorems 1–2).
+- [HYPERGRAPH_THEORY.md](HYPERGRAPH_THEORY.md): Comprehensive mathematical monograph.
+- [README.md](README.md): Lean 4 verification suite overview.
 
 ---
 

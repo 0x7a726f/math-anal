@@ -110,6 +110,12 @@ def main():
         sys.exit(1)
     print(f"[+] AUDIT PASS: Zero occurrences of {target_macro} confirmed across all repository files.")
 
+    # Step 6: Comprehensive Repository Link & Rigor Audit
+    audit_cmd = f'"{sys.executable}" scripts/audit_repo_links.py'
+    ok, out, err = run_step("Step 6: Repository Integrity, Markdown Links & Artifact Audit", audit_cmd)
+    if not ok:
+        sys.exit(1)
+
     print_header("REPRODUCTION SUITE: ALL CHECKS PASSED (100% VERIFIED)")
     print("""
 All research artifacts have been successfully verified:
