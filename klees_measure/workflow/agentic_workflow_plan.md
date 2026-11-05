@@ -65,7 +65,7 @@ The autonomous agentic workflow coordinates three specialized subagents operatin
   - Compute the complement volume using:
     1. *Combinatorial Hyperplane Sweep* (exact reference).
     2. *Inclusion-Exclusion Principle* over elementary intervals.
-    3. *Matrix Trace Formula*: $\operatorname{Tr}(D_1 A_{12} D_2 A_{23} D_3 A_{31})$.
+    3. *Matrix Trace Formula*: $\mathrm{Tr}(D_1 A_{12} D_2 A_{23} D_3 A_{31})$.
   - Verify exact arithmetic equality across all test instances.
 - **Deliverables**:
   - `tests/clean_cell_test_report.json`: Verification certificates.

@@ -16,13 +16,13 @@ This repository contains the research artifacts and high-performance implementat
 ## 🔬 Scientific Highlights
 
 1. **Quadratic Spanning-Box Penalty**: Naive SDC implementations suffer from exponential subtree blowup when cutting planes duplicate spanning boxes. We introduce the cut efficiency metric:
-   $$\operatorname{Score}(i) = \frac{\sum_{j \ne i} N_{i,j}^{1.5}}{(1 + \operatorname{Span}(i))^2}$$
+   $$\mathrm{Score}(i) = \frac{\sum_{j \ne i} N_{i,j}^{1.5}}{(1 + \mathrm{Span}(i))^2}$$
    penalizing spanning box duplication and pruning high-overlap branches.
 
 2. **Coarse-to-Fine Leaf Sweeping**: Dividing cells all the way down to $|B| \le 1$ creates millions of micro-cells. By transferring to an exact recursive hyperplane sweep at $|B| \le 48..64$, we eliminate **99.97% of recursive calls** and **98.0% of processed active ridges**.
 
 3. **Clean-Cell Matrix Trace Factorization**: Cells containing zero $\ge 3$-slabs (Clean cells) reduce the Lebesgue complement volume to an exact cyclic matrix trace:
-   $$\operatorname{Vol}\left(C \setminus \bigcup B\right) = \operatorname{Tr}\left(D_1 A_{12} D_2 A_{23} D_3 A_{31}\right)$$
+   $$\mathrm{Vol}\left(C \setminus \bigcup B\right) = \mathrm{Tr}\left(D_1 A_{12} D_2 A_{23} D_3 A_{31}\right)$$
    solvable in $O(V^{\omega d / 3})$ arithmetic time via BLAS GEMM, delivering up to a **$25.8\times$ empirical speedup** in $d=6$.
 
 4. **100% Exact Verification**: Uses portable 128-bit integer arithmetic with exact coordinate compression, guaranteed to match combinatorial ground-truth sweeps across all inputs.
