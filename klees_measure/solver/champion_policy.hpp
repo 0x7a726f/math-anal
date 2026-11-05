@@ -138,6 +138,54 @@ struct ChampionPolicy {
         return best_c;
     }
 
+    bool use_corner_2cuts = false;
+    uint64_t corner_2cut_face_threshold = 3000;
+
+    Corner2Cut select_corner_2cut(
+        const Box& cell,
+        const std::vector<Box>& boxes,
+        const std::vector<std::vector<uint32_t>>& d2_face_matrix
+    ) const {
+        int d = cell.dim();
+        if (d < 2) return {-1, -1, 0, 0, false};
+
+        int best_i = -1, best_j = -1;
+        uint32_t max_faces = 0;
+        for (int i = 0; i < d; ++i) {
+            for (int j = i + 1; j < d; ++j) {
+                if (d2_face_matrix[i][j] > max_faces) {
+                    max_faces = d2_face_matrix[i][j];
+                    best_i = i;
+                    best_j = j;
+                }
+            }
+        }
+
+        if (best_i == -1) {
+            best_i = 0;
+            best_j = 1;
+        }
+
+        int64_t cut_i = select_cut_coordinate(best_i, cell, boxes);
+        int64_t cut_j = select_cut_coordinate(best_j, cell, boxes);
+
+        if (cut_i <= cell.low[best_i] || cut_i >= cell.high[best_i] ||
+            cut_j <= cell.low[best_j] || cut_j >= cell.high[best_j]) {
+            return {-1, -1, 0, 0, false};
+        }
+
+        return {best_i, best_j, cut_i, cut_j, true};
+    }
+
+    bool should_use_corner_2cut(
+        const Box& cell,
+        const std::vector<Box>& boxes,
+        uint64_t active_d2_faces
+    ) const {
+        if (!use_corner_2cuts) return false;
+        return active_d2_faces >= corner_2cut_face_threshold;
+    }
+
     bool should_terminate_leaf(
         const Box& cell,
         const std::vector<Box>& boxes,
@@ -151,8 +199,8 @@ struct ChampionPolicy {
         else if (d == 4) threshold = thresh_d4;
         if ((int)boxes.size() <= threshold) return true;
         if (active_d2_faces == 0) return true;
-        if (d == 3 && is_clean_cell(cell, boxes)) return true;
-        if (d <= 6 && (int)boxes.size() <= 16 && is_clean_cell(cell, boxes)) return true;
+        if (is_clean_cell(cell, boxes)) return true;
+        if ((d == 4 || d == 5) && is_hypergraph_clean_cell(cell, boxes)) return true;
         return false;
     }
 
@@ -163,8 +211,14 @@ struct ChampionPolicy {
     ) const {
         if (boxes.empty()) return Int128(0);
         if (boxes.size() == 1) return boxes[0].volume();
-        if (d <= 6 && is_clean_cell(cell, boxes)) {
+        if (is_clean_cell(cell, boxes)) {
             return evaluate_tensor_clean_cell(cell, boxes);
+        }
+        if (d == 4 && is_hypergraph_clean_cell(cell, boxes)) {
+            return evaluate_tensor_hypergraph_d4(cell, boxes);
+        }
+        if (d == 5 && is_hypergraph_clean_cell(cell, boxes)) {
+            return evaluate_tensor_hypergraph_d5(cell, boxes);
         }
         return exact_kmp_sweep(boxes, d);
     }

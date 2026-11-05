@@ -162,6 +162,44 @@ private:
                 d2_face_matrix[i][j] = d2_mat[i][j];
             }
         }
+
+        // 4a. Check for Joint Orthogonal Corner 2-Cut
+        if (policy.should_use_corner_2cut(cell, active_boxes, total_active_d2_faces)) {
+            Corner2Cut c2 = policy.select_corner_2cut(cell, active_boxes, d2_face_matrix);
+            if (c2.is_valid) {
+                int ax1 = c2.axis1;
+                int ax2 = c2.axis2;
+                int64_t cut1 = c2.cut1;
+                int64_t cut2 = c2.cut2;
+
+                Box cell00 = cell, cell01 = cell, cell10 = cell, cell11 = cell;
+                cell00.high[ax1] = cut1; cell00.high[ax2] = cut2;
+                cell01.high[ax1] = cut1; cell01.low[ax2]  = cut2;
+                cell10.low[ax1]  = cut1; cell10.high[ax2] = cut2;
+                cell11.low[ax1]  = cut1; cell11.low[ax2]  = cut2;
+
+                std::vector<Box> b00, b01, b10, b11;
+                for (const auto& b : active_boxes) {
+                    bool in_low1 = (b.low[ax1] < cut1);
+                    bool in_high1 = (b.high[ax1] > cut1);
+                    bool in_low2 = (b.low[ax2] < cut2);
+                    bool in_high2 = (b.high[ax2] > cut2);
+
+                    if (in_low1 && in_low2) b00.push_back(b);
+                    if (in_low1 && in_high2) b01.push_back(b);
+                    if (in_high1 && in_low2) b10.push_back(b);
+                    if (in_high1 && in_high2) b11.push_back(b);
+                }
+
+                Int128 v00 = solve_recursive(cell00, b00, ax1, counters, policy);
+                Int128 v01 = solve_recursive(cell01, b01, ax2, counters, policy);
+                Int128 v10 = solve_recursive(cell10, b10, ax1, counters, policy);
+                Int128 v11 = solve_recursive(cell11, b11, ax2, counters, policy);
+
+                return v00 + v01 + v10 + v11;
+            }
+        }
+
         int axis = policy.select_split_axis(cell, active_boxes, d2_face_matrix, last_split_dim);
         int64_t cut = policy.select_cut_coordinate(axis, cell, active_boxes);
 

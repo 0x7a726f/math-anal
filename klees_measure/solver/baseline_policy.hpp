@@ -47,6 +47,9 @@ struct BaselinePolicy {
         return coords[coords.size() / 2];
     }
 
+    bool should_use_corner_2cut(const Box&, const std::vector<Box>&, uint64_t) const { return false; }
+    Corner2Cut select_corner_2cut(const Box&, const std::vector<Box>&, const std::vector<std::vector<uint32_t>>&) const { return {-1, -1, 0, 0, false}; }
+
     bool should_terminate_leaf(
         const Box& cell,
         const std::vector<Box>& boxes,

@@ -158,6 +158,14 @@ struct Box {
     }
 };
 
+struct Corner2Cut {
+    int axis1 = -1;
+    int axis2 = -1;
+    int64_t cut1 = 0;
+    int64_t cut2 = 0;
+    bool is_valid = false;
+};
+
 struct StructuralCounters {
     Int128 exact_volume = Int128(0);
     uint64_t total_d2_faces_processed = 0;
