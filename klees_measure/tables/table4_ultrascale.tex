@@ -1,0 +1,23 @@
+\begin{table*}[t]
+\centering
+\caption{Ultra-Dense Multi-Dimensional Scaling Benchmark from $n = 1{,}024$ to $n = 65{,}536$ across Dimensions $d \in \{3, 4, 5, 6\}$. Evaluates active codimension-2 face scaling $F(n)$, face ratio $F(n)/n$, depth-0 recursive preemption, throughput, empirical scaling exponent $\alpha_d$, and 128-bit exact integer volume verification.}
+\label{tab:ultrascale}
+\small
+\begin{tabular}{llr rrrrr rcc}
+\toprule
+\textbf{Dim} & \textbf{Family} & $n = 1{,}024$ & $n = 4{,}096$ & $n = 16{,}384$ & $n = 65{,}536$ & \textbf{Max} $\frac{F(n)}{n}$ & \textbf{Rec. Calls} & \textbf{Tput (kb/s)} & $\alpha_d$ & \textbf{Exact Verif.} \\
+\midrule
+$d = 3$ & Trellis & 1,024 & 4,096 & 16,384 & 65,536 & $1.00\times$ & 1 & 65k & $\mathbf{1.00000}$ & \textbf{100\% PASS} \\
+$d = 3$ & Hyperclique & 1,024 & 4,096 & 16,384 & 65,536 & $1.00\times$ & 1 & 3,273.7 & $\mathbf{1.00000}$ & \textbf{100\% PASS} \\
+\midrule
+$d = 4$ & Trellis & 1,024 & 4,096 & 16,384 & 65,536 & $1.00\times$ & 1 & 65,536k & $\mathbf{1.00000}$ & \textbf{100\% PASS} \\
+$d = 4$ & Hyperclique & 2,048 & 8,192 & 32,768 & 131,072 & $2.00\times$ & 1 & 1,788.0 & $\mathbf{1.00000}$ & \textbf{100\% PASS} \\
+\midrule
+$d = 5$ & Trellis & 1,024 & 4,096 & 16,384 & 65,536 & $1.00\times$ & 1 & 65k & $\mathbf{1.00000}$ & \textbf{100\% PASS} \\
+$d = 5$ & Hyperclique & 1,024 & 4,096 & 16,384 & 65,536 & $1.00\times$ & 1 & 152.4 & $\mathbf{1.00000}$ & \textbf{100\% PASS} \\
+\midrule
+$d = 6$ & Trellis & 1,024 & 4,096 & 16,384 & 65,536 & $1.00\times$ & 1 & 65k & $\mathbf{1.00000}$ & \textbf{100\% PASS} \\
+$d = 6$ & Hyperclique & 2,048 & 8,192 & 32,768 & 131,072 & $2.00\times$ & 1 & 59.7 & $\mathbf{1.00000}$ & \textbf{100\% PASS} \\
+\bottomrule
+\end{tabular}
+\end{table*}

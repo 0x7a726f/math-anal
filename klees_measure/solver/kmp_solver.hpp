@@ -152,6 +152,9 @@ private:
         // 3. Base-Case / Trellis Cutoff check
         if (policy.should_terminate_leaf(cell, active_boxes, total_active_d2_faces)) {
             counters.trellis_leaves++;
+            if (active_boxes.size() > 1 && (is_clean_cell(cell, active_boxes) || ((d == 4 || d == 5 || d == 6) && is_hypergraph_clean_cell(cell, active_boxes)))) {
+                counters.clean_cell_leaves++;
+            }
             return policy.evaluate_leaf(cell, active_boxes, d);
         }
 

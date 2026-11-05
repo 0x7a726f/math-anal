@@ -55,11 +55,31 @@ struct ChampionPolicy {
                     weighted_deg += n_ij * std::sqrt(n_ij); // n^{1.5}
                 }
             }
-            if (weighted_deg <= 0.0) continue;
+
+            // Hypergraph Slab Area Heuristic (HSAH):
+            double hsah_bonus = 0.0;
+            double cell_span = (double)(cell.high[i] - cell.low[i]);
+            for (const auto& b : boxes) {
+                if (b.low[i] > cell.low[i] || b.high[i] < cell.high[i]) {
+                    int k = 0;
+                    for (int j = 0; j < d; ++j) {
+                        if (b.low[j] > cell.low[j] || b.high[j] < cell.high[j]) k++;
+                    }
+                    double b_span = (double)(std::min(cell.high[i], b.high[i]) - std::max(cell.low[i], b.low[i]));
+                    double rel_span = (cell_span > 0.0) ? (b_span / cell_span) : 1.0;
+                    if (k >= 4) {
+                        hsah_bonus += 16.0 * rel_span;
+                    } else if (k == 3) {
+                        hsah_bonus += 5.0 * rel_span;
+                    }
+                }
+            }
+
+            if (weighted_deg <= 0.0 && hsah_bonus <= 0.0) continue;
 
             double denom = (1.0 + (double)spanning_count[i]);
             double trans_penalty = (1.0 + 0.15 * (double)transverse_spanning[i]);
-            double efficiency = weighted_deg / (denom * denom * trans_penalty);
+            double efficiency = (weighted_deg + hsah_bonus) / (denom * denom * trans_penalty);
             if (efficiency > max_efficiency) {
                 max_efficiency = efficiency;
                 best_dim = i;

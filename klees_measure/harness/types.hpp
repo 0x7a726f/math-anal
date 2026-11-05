@@ -172,6 +172,7 @@ struct StructuralCounters {
     uint64_t recursive_calls = 0;
     uint64_t trellis_leaves = 0;
     uint64_t simplify_steps = 0;
+    uint64_t clean_cell_leaves = 0;
 
     void reset() {
         exact_volume = Int128(0);
@@ -179,6 +180,7 @@ struct StructuralCounters {
         recursive_calls = 0;
         trellis_leaves = 0;
         simplify_steps = 0;
+        clean_cell_leaves = 0;
     }
 };
 

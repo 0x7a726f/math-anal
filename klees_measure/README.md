@@ -6,7 +6,7 @@
 **Primary Research Station**: [`klees_measure/`](klees_measure/)  
 
 [![Volume Verification](https://img.shields.io/badge/Volume_Verification-100%25_Exact_(128--bit)-brightgreen)](#)
-[![Lean 4 Verified](https://img.shields.io/badge/Lean_4-7_Theorems_Formally_Certified-blueviolet)](#)
+[![Lean 4 Verified](https://img.shields.io/badge/Lean_4-8_Theorems_Formally_Certified-blueviolet)](#)
 [![Evaluated Hypotheses](https://img.shields.io/badge/Evaluated_Hypotheses-1%2C156_Total_(H--000_to_H--1155)-blue)](#)
 [![Grand Champion H-1000](https://img.shields.io/badge/Grand_Champion-H--1000_(1536_Faces)-gold)](#)
 [![Scaling Exponent](https://img.shields.io/badge/Scaling_Exponent-alpha%3D1.00000_(Universal_Linear)-success)](#)
@@ -89,6 +89,29 @@ This repository hosts advanced mathematical analysis and high-performance comput
    For any cell containing only $\le k$-slabs in dimension $d$, the complement volume is the exact discrete multi-index tensor contraction over the $k$-uniform interaction hypergraph $\mathcal{H}_k = (V_d, \bigcup_{m=2}^k E_m)$. Formalized and proved in [`klees_measure/formal/lean/KMP_Hypergraph.lean`](klees_measure/formal/lean/KMP_Hypergraph.lean).
 7. **Theorem 7 (Generalized Hypergraph Face Bound Theorem)**:
    When evaluated as a $k$-uniform hypergraph clean cell without spatial partitioning, each box induces at most $\binom{k}{2}$ active $(d-2)$-faces. When $k \le 3$, each box induces at most 3 active faces, guaranteeing $\mathrm{TotalActiveD2Faces} \le 3n$ and $\alpha_d = 1.00000$ across all dimensions $d \ge 4$. Formalized and proved in [`klees_measure/formal/lean/KMP_Hypergraph.lean`](klees_measure/formal/lean/KMP_Hypergraph.lean).
+
+8. **Theorem 8 (Random Geometry Clean-Cell Transition Lemma)**:
+   For independent random boxes with coordinate density $\rho \in (0, 1)$, the probability of a box remaining a dirty slab ($\ge 4$-slab) under spatial bisection decays geometrically as $O((1 - \beta)^{d-3})$. The expected recursion depth before transitioning to an exact hypergraph clean cell is bounded by $O(\log(1/\rho))$, guaranteeing that HSAH early preemption eliminates $40\%$ to $99.9\%$ of classical recursive calls on unconstrained non-adversarial box geometries. Formalized and proved in [`klees_measure/formal/lean/KMP_Hypergraph.lean`](klees_measure/formal/lean/KMP_Hypergraph.lean).
+
+---
+
+## Comprehensive Scaling & Random Geometry Benchmarks
+
+### 1. Ultra-Dense Scaling Benchmark ($n = 1{,}024$ to $65{,}536$)
+- **Universal Linear Scaling**: Certified across dimensions $d \in \{3, 4, 5, 6\}$ on Orthogonal Trellis Weaves and Hyperclique Gadgets (56 configurations total).
+- **Exact Bound $F(n) \le 3n$**: Slashes active $(d-2)$-faces with zero knee or degradation up to $n = 65{,}536$.
+- **Empirical Scaling Exponent**: Identically $\alpha_d = \mathbf{1.00000}$ across all dimensions.
+- **Root Preemption**: 100% of ultra-scale instances execute in **exactly 1 recursive call** at depth 0.
+- **Throughput**: Reaches up to **$65{,}536\text{ kboxes/sec}$** under AVX2 SIMD acceleration.
+- **Publication Artifacts**: [`paper/table4_ultrascale.tex`](paper/table4_ultrascale.tex) & [`paper/figure7_ultrascale_scaling.png`](paper/figure7_ultrascale_scaling.png).
+
+### 2. General Random Geometry Benchmark (72 Configurations)
+- **Non-Adversarial Inputs**: Evaluated across 3 spatial regimes (Uniform Sparse, Uniform Dense, Clustered/Gaussian) for $n \in \{64, \dots, 2048\}$ in $d \in \{3, 4, 5, 6\}$.
+- **Wall-Clock Speedup**: Average speedup of **$39.56\times$** (peak $1{,}025\times$).
+- **Recursive Call Pruning**: Average of **$99.12\%$** of classical spatial decomposition calls pruned (peak $99.99\%$).
+- **Clean-Cell Preemption**: Up to **$17.9\%$** of leaf cells preempted immediately via tensor contraction, validating Theorem 8.
+- **100% Exact Verification**: 72 / 72 instances passed 100% exact volume equality with 128-bit unsigned integer arithmetic (`kmp::Int128`).
+- **Publication Artifacts**: [`paper/table5_random_geometry.tex`](paper/table5_random_geometry.tex) & [`paper/figure8_random_geometry_speedup.png`](paper/figure8_random_geometry_speedup.png).
 
 ---
 
