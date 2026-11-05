@@ -1,6 +1,6 @@
 """
 Generate publication-quality figures and LaTeX tables for the KMP JEA Paper.
-Updated with extended autonomous discoveries up to H-51 Champion.
+Updated with extended autonomous discoveries up to H-86 All-Time Champion.
 """
 
 import os
@@ -27,10 +27,10 @@ def generate_plots_and_tables():
     h18_trellis_faces = np.array([480, 1820, 6850, 25875])
     # H-36 (GSAH + Transverse Penalty, Cutoff <= 128)
     h36_trellis_faces = np.array([240, 720, 2410, 9374])
-    # H-46 (Coarse GSAH, Cutoff <= 224)
-    h46_trellis_faces = np.array([120, 360, 1205, 4441])
-    # H-51 (All-Time Champion, Cutoff <= 500)
+    # H-51 (Coarse GSAH, Cutoff <= 500)
     h51_trellis_faces = np.array([60, 180, 602, 1289])
+    # H-86 (Clean-Cell All-Time Champion)
+    h86_trellis_faces = np.array([60, 180, 602, 512])
 
     # Plot 1: Scaling of Active (d-2)-Faces on Orthogonal Trellis Weaves (log-log)
     fig, ax = plt.subplots(figsize=(7.5, 5.0), dpi=300)
@@ -39,8 +39,8 @@ def generate_plots_and_tables():
     ax.loglog(n_vals, h14_trellis_faces, "v--", color="#5cb85c", linewidth=1.8, label="H-14: Leaf Cutoff $|B| \\leq 16$")
     ax.loglog(n_vals, h18_trellis_faces, "d--", color="#5bc0de", linewidth=1.8, label="H-18: Leaf Cutoff $|B| \\leq 64$")
     ax.loglog(n_vals, h36_trellis_faces, "p-", color="#337ab7", linewidth=2.0, label="H-36: Centered GSAH + Transverse ($|B| \\leq 128$)")
-    ax.loglog(n_vals, h46_trellis_faces, "h-", color="#8e44ad", linewidth=2.0, label="H-46: Centered GSAH ($|B| \\leq 224$)")
-    ax.loglog(n_vals, h51_trellis_faces, "*-", color="#27ae60", linewidth=2.5, markersize=10, label="H-51: All-Time Champion ($|B| \\leq 500, \\hat{\\alpha} = 1.37$)")
+    ax.loglog(n_vals, h51_trellis_faces, "h-", color="#8e44ad", linewidth=2.0, label="H-51: Coarse GSAH ($|B| \\leq 500, \\hat{\\alpha} = 1.37$)")
+    ax.loglog(n_vals, h86_trellis_faces, "*-", color="#27ae60", linewidth=2.5, markersize=10, label="H-86: Clean-Cell Tensor Hook ($|B| \\leq 500, \\hat{\\alpha} = 1.26$)")
 
     # Theoretical O(n^2) reference slope
     ref_y = (n_vals / 64.0)**2 * 27581
@@ -74,17 +74,18 @@ def generate_plots_and_tables():
         "H-46 (Cut <= 224)": 40,
         "H-48 (Cut <= 320)": 22,
         "H-50 (Cut <= 448)": 14,
-        "H-51 (Champion)": 12
+        "H-51 (Cut <= 500)": 12,
+        "H-86 (Clean-Cell Champ)": 10
     }
 
-    fig, ax = plt.subplots(figsize=(9.0, 5.5), dpi=300)
+    fig, ax = plt.subplots(figsize=(9.0, 5.8), dpi=300)
     policies = list(calls_data.keys())
     calls_vals = list(calls_data.values())
-    colors = ["#d9534f"] + ["#f0ad4e"]*2 + ["#5bc0de"]*3 + ["#5cb85c"]*2 + ["#337ab7"]*3 + ["#8e44ad"]*4 + ["#27ae60"]*2
+    colors = ["#d9534f"] + ["#f0ad4e"]*2 + ["#5bc0de"]*3 + ["#5cb85c"]*2 + ["#337ab7"]*3 + ["#8e44ad"]*4 + ["#27ae60"]*3
     bars = ax.barh(policies[::-1], calls_vals[::-1], color=colors[::-1])
     ax.set_xscale("log")
     ax.set_xlabel("Recursive Function Calls (Log Scale)")
-    ax.set_title(r"Recursive Call Pruning from Baseline to Champion ($99.9993\%$ Eliminated)")
+    ax.set_title(r"Recursive Call Pruning from Baseline to Champion ($99.9994\%$ Eliminated)")
 
     for bar in bars:
         w = bar.get_width()
@@ -132,7 +133,7 @@ def generate_plots_and_tables():
     # Generate LaTeX Table 1: Leaderboard
     table1_tex = r"""\begin{table*}[t]
 \centering
-\caption{Pareto Progression on the $d=4$ Adversarial Benchmark ($n \in \{64, 128, 256, 512\}$ on Orthogonal Trellis Weaves and Hyperclique Gadgets). Every policy passed 100\% ground-truth exact volume verification.}
+\caption{Pareto Progression on the $d=4$ Adversarial Benchmark ($n \in \{64, 128, 256, 512\}$ on Orthogonal Trellis Weaves and Hyperclique Gadgets). Every policy passed 100\% ground-truth exact volume verification across 155 evaluated hypotheses.}
 \label{tab:leaderboard}
 \small
 \begin{tabular}{llrrrrr}
@@ -155,7 +156,8 @@ def generate_plots_and_tables():
 \textbf{H-46} & Coarse GSAH ($|B| \le 224$) & 12,996 & -99.47\% & 40 & 24 & 1.9805 \\
 \textbf{H-48} & Coarse GSAH ($|B| \le 320$) & 8,597 & -99.65\% & 22 & 15 & 1.6718 \\
 \textbf{H-50} & Coarse GSAH ($|B| \le 448$) & 6,155 & -99.75\% & 14 & 11 & 1.4942 \\
-\textbf{H-51} & \textbf{All-Time Champion}: Coarse GSAH ($|B| \le 500$) & \textbf{4,938} & \textbf{-99.80\%} & \textbf{12} & \textbf{10} & \textbf{1.3679} \\
+\textbf{H-51} & Coarse GSAH ($|B| \le 500$) & 4,938 & -99.80\% & 12 & 10 & 1.3679 \\
+\textbf{H-86} & \textbf{All-Time Champion}: Clean-Cell 4D Tensor Hook & \textbf{4,161} & \textbf{-99.83\%} & \textbf{10} & \textbf{9} & \textbf{1.2625} \\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -178,7 +180,8 @@ Active Ridge Endpoint Selection ($\operatorname{deg}(i)$) & $-40.5\%$ & $-44.9\%
 Quadratic Spanning-Box Penalty & $-40.0\%$ & $-46.7\%$ \\
 Centered GSAH Min-Duplication Plane ($\lambda = 2.0$) & $-97.4\%$ & $-99.95\%$ \\
 Transverse Ridge Duplication Penalty ($\operatorname{coeff} = 0.15$) & $-99.02\%$ & $-99.993\%$ \\
-Coarse-to-Fine Adaptive Leaf Sweep ($|B| \le 500$) & $\mathbf{-99.80\%}$ & $\mathbf{-99.9993\%}$ \\
+Coarse-to-Fine Adaptive Leaf Sweep ($|B| \le 500$) & $-99.80\%$ & $-99.9993\%$ \\
+Clean-Cell 4D Tensor Contraction Hook & $\mathbf{-99.83\%}$ & $\mathbf{-99.9994\%}$ \\
 \bottomrule
 \end{tabular}
 \end{table}

@@ -59,6 +59,8 @@ FILES_TO_INCLUDE = [
     ("research/GRAVEYARD.md", "research/GRAVEYARD.md"),
     ("data/scaling_matrix.json", "data/scaling_matrix.json"),
     ("data/cross_dim_scaling.json", "data/cross_dim_scaling.json"),
+    ("data/wave1_results.json", "data/wave1_results.json"),
+    ("data/wave2_results.json", "data/wave2_results.json"),
     ("benchmarks/scaling_grid.cpp", "benchmarks/scaling_grid.cpp"),
     
     # Build & Reproduction

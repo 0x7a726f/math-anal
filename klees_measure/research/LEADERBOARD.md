@@ -4,7 +4,8 @@ The objective is to minimize structural recursion work (`total_d2_faces_processe
 
 | Rank | Hypothesis ID | Mechanism / Policy Description | `alpha_hat` | `total_d2_faces` | `recursive_calls` | `trellis_leaves` | Verification |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **CHAMPION** | **H-51** | **H-51: Coarse Leaf Threshold k = 500** | **1.36792** | **4,938** | **12** | **10** | **100% Exact** |
+| **CHAMPION** | **H-86** | **H-86: Clean-Cell 4D Tensor Hook (Immediate Leaf Evaluation)** | **1.26249** | **4,161** | **10** | **9** | **100% Exact** |
+| Contender | H-51 | H-51: Coarse Leaf Threshold k = 500 | 1.36792 | 4,938 | 12 | 10 | 100% Exact |
 | Contender | H-50 | H-50: Coarse Leaf Threshold k = 448 | 1.49415 | 6,155 | 14 | 11 | 100% Exact |
 | Contender | H-49 | H-49: Coarse Leaf Threshold k = 384 | 1.54589 | 6,766 | 16 | 12 | 100% Exact |
 | Contender | H-48 | H-48: Coarse Leaf Threshold k = 320 | 1.67182 | 8,597 | 22 | 15 | 100% Exact |

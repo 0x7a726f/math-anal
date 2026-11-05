@@ -1,0 +1,352 @@
+[
+  [
+    "H-106",
+    "3-Slab Destruction Priority (w = 2.0)",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-107",
+    "3-Slab Destruction Priority (w = 5.0)",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-108",
+    "3-Slab Destruction Priority (w = 10.0)",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-109",
+    "3-Slab Destruction Priority (w = 20.0)",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-110",
+    "Clean-Cell Proximity Cut Selection",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-111",
+    "Clean-Cell Induction with lambda = 1.8",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-112",
+    "Clean-Cell Induction with lambda = 2.2",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-113",
+    "Clean-Cell Induction with trans = 0.18",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-114",
+    "Clean-Cell Induction with trans = 0.12",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-115",
+    "Clean-Cell Induction with gamma = 1.55",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-116",
+    "Clean-Cell Quantile [0.22, 0.78]",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-117",
+    "Clean-Cell Quantile [0.24, 0.76]",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-118",
+    "Clean-Cell Quantile [0.18, 0.82]",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-119",
+    "Clean-Cell Distance Power p = 2.2",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-120",
+    "Clean-Cell Distance Power p = 1.8",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-121",
+    "Clean-Cell Early Ridge Cutoff N_d2 <= 5",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-122",
+    "Clean-Cell Early Ridge Cutoff N_d2 <= 10",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-123",
+    "Clean-Cell Early Ridge Cutoff N_d2 <= 20",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-124",
+    "Clean-Cell Early Ridge Cutoff N_d2 <= 35",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-125",
+    "Clean-Cell Early Ridge Cutoff N_d2 <= 50",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-126",
+    "Clean-Cell Dense Limit k = 480",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-127",
+    "Clean-Cell Dense Limit k = 460",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-128",
+    "Clean-Cell Dense Limit k = 440",
+    "REGRESSION",
+    "5378",
+    "1.41791"
+  ],
+  [
+    "H-129",
+    "Clean-Cell Dense Limit k = 420",
+    "REGRESSION",
+    "5378",
+    "1.41791"
+  ],
+  [
+    "H-130",
+    "Clean-Cell Dense Limit k = 400",
+    "REGRESSION",
+    "5378",
+    "1.41791"
+  ],
+  [
+    "H-131",
+    "Clean-Cell Dense Limit k = 380",
+    "REGRESSION",
+    "5378",
+    "1.41791"
+  ],
+  [
+    "H-132",
+    "Clean-Cell Dense Limit k = 360",
+    "REGRESSION",
+    "5378",
+    "1.41791"
+  ],
+  [
+    "H-133",
+    "Clean-Cell Dense Limit k = 340",
+    "REGRESSION",
+    "6222",
+    "1.50013"
+  ],
+  [
+    "H-134",
+    "Clean-Cell Dense Limit k = 320",
+    "REGRESSION",
+    "6222",
+    "1.50013"
+  ],
+  [
+    "H-135",
+    "Clean-Cell Dense Limit k = 300",
+    "REGRESSION",
+    "7059",
+    "1.56867"
+  ],
+  [
+    "H-136",
+    "Ridge Power gamma = 1.45 with Clean Hook",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-137",
+    "Ridge Power gamma = 1.42 with Clean Hook",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-138",
+    "Ridge Power gamma = 1.38 with Clean Hook",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-139",
+    "Ridge Power gamma = 1.35 with Clean Hook",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-140",
+    "Ridge Power gamma = 1.65 with Clean Hook",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-141",
+    "Transverse Penalty coeff = 0.17",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-142",
+    "Transverse Penalty coeff = 0.13",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-143",
+    "Distance Weight lambda = 2.3",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-144",
+    "Distance Weight lambda = 1.7",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-145",
+    "Linear + Quadratic Hybrid Distance Penalty",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-146",
+    "3-Slab Destruction w=1.0 + Clean Hook",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-147",
+    "3-Slab Destruction w=3.0 + Clean Hook",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-148",
+    "3-Slab Destruction w=4.0 + Clean Hook",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-149",
+    "Combined Clean Proximity + 3-Slab w=2.0",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-150",
+    "Quantile [0.21, 0.79] Calibration",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-151",
+    "Quantile [0.23, 0.77] Calibration",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-152",
+    "Regularized GSAH lambda = 2.05",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-153",
+    "Regularized GSAH lambda = 1.95",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-154",
+    "Transverse Penalty coeff = 0.155",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ],
+  [
+    "H-155",
+    "Strategy 2.0 Final Synthesis Champion",
+    "REGRESSION",
+    "4161",
+    "1.26249"
+  ]
+]
