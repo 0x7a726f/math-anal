@@ -2,6 +2,7 @@
 #include "../harness/types.hpp"
 #include "../harness/verifier.hpp"
 #include "clean_cell_trace.hpp"
+#include "tensor_clean_cell.hpp"
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -10,7 +11,7 @@
 namespace kmp {
 
 struct ChampionPolicy {
-    std::string id = "H-51 Champion: Active Ridge + Centered GSAH";
+    std::string id = "Champion H-51/H-86: Active Ridge Minimization + AVX2 Tensor Clean-Cell";
 
     int thresh_d3 = 64;
     int thresh_d4 = 48;
@@ -150,6 +151,8 @@ struct ChampionPolicy {
         else if (d == 4) threshold = thresh_d4;
         if ((int)boxes.size() <= threshold) return true;
         if (active_d2_faces == 0) return true;
+        if (d == 3 && is_clean_cell(cell, boxes)) return true;
+        if (d <= 6 && (int)boxes.size() <= 16 && is_clean_cell(cell, boxes)) return true;
         return false;
     }
 
@@ -160,8 +163,8 @@ struct ChampionPolicy {
     ) const {
         if (boxes.empty()) return Int128(0);
         if (boxes.size() == 1) return boxes[0].volume();
-        if (d == 3) {
-            return evaluate_clean_cell_d3_trace(cell, boxes);
+        if (d <= 6 && is_clean_cell(cell, boxes)) {
+            return evaluate_tensor_clean_cell(cell, boxes);
         }
         return exact_kmp_sweep(boxes, d);
     }
