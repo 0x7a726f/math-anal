@@ -61,6 +61,8 @@ FILES_TO_INCLUDE = [
     ("data/cross_dim_scaling.json", "data/cross_dim_scaling.json"),
     ("data/wave1_results.json", "data/wave1_results.json"),
     ("data/wave2_results.json", "data/wave2_results.json"),
+    ("data/campaign_200_results.json", "data/campaign_200_results.json"),
+    ("data/campaign_h156_h355_ledger.json", "data/campaign_h156_h355_ledger.json"),
     ("benchmarks/scaling_grid.cpp", "benchmarks/scaling_grid.cpp"),
     
     # Build & Reproduction

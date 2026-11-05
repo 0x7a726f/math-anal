@@ -1,0 +1,1712 @@
+{
+  "series_1": {
+    "series": 1,
+    "range": "H-156..H-175",
+    "count": 20,
+    "verified_count": 20,
+    "pareto_count": 0,
+    "regression_count": 20,
+    "elapsed_seconds": 347.3,
+    "hypotheses": [
+      {
+        "id": "H-156",
+        "desc": "3-Slab Destruction w = 0.5",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-157",
+        "desc": "3-Slab Destruction w = 0.75",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-158",
+        "desc": "3-Slab Destruction w = 1.25",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-159",
+        "desc": "3-Slab Destruction w = 1.75",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-160",
+        "desc": "3-Slab Destruction w = 2.5",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-161",
+        "desc": "Directional 3-Slab Damping coeff = 0.10",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-162",
+        "desc": "Directional 3-Slab Damping coeff = 0.20",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-163",
+        "desc": "Clean-Cell Proximity Cut coeff = 0.2",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-164",
+        "desc": "Clean-Cell Proximity Cut coeff = 0.4",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-165",
+        "desc": "Clean-Cell Proximity Cut coeff = 0.6",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-166",
+        "desc": "Asymmetric 3-Slab Weighting with gamma = 1.48",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-167",
+        "desc": "Asymmetric 3-Slab Weighting with gamma = 1.52",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-168",
+        "desc": "Transverse 3-Slab Preservation factor = 0.05",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-169",
+        "desc": "Transverse 3-Slab Preservation factor = 0.25",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-170",
+        "desc": "Pure Clean-Cell Induction with lambda = 2.15",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-171",
+        "desc": "Pure Clean-Cell Induction with lambda = 1.85",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-172",
+        "desc": "Pure Clean-Cell Induction with lambda = 2.25",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-173",
+        "desc": "Pure Clean-Cell Induction with lambda = 1.75",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-174",
+        "desc": "Clean-Cell Induction with Quantile [0.22, 0.78]",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-175",
+        "desc": "Clean-Cell Induction with Quantile [0.19, 0.81]",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      }
+    ]
+  },
+  "series_2": {
+    "series": 2,
+    "range": "H-176..H-195",
+    "count": 20,
+    "verified_count": 20,
+    "pareto_count": 0,
+    "regression_count": 20,
+    "elapsed_seconds": 352.41,
+    "hypotheses": [
+      {
+        "id": "H-176",
+        "desc": "Graph Degeneracy Axis Priority (max deg in G)",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-177",
+        "desc": "Triangle-Density Axis Priority (gamma = 1.49)",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-178",
+        "desc": "Path-Width Potential gamma = 1.51",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-179",
+        "desc": "Min-Degree Cut Axis Exploration",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-180",
+        "desc": "Bounded Treewidth Early Leaf tw <= 1",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-181",
+        "desc": "Bounded Treewidth Early Leaf tw <= 2",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-182",
+        "desc": "Active Edge Density Penalty lambda = 2.10",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-183",
+        "desc": "Active Edge Density Penalty lambda = 1.90",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-184",
+        "desc": "Spectral Gap Proxy gamma = 1.46",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-185",
+        "desc": "Spectral Gap Proxy gamma = 1.54",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-186",
+        "desc": "Bipartite Interaction Detection trans = 0.16",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-187",
+        "desc": "Bipartite Interaction Detection trans = 0.14",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-188",
+        "desc": "Laplacian Algebraic Connectivity Proxy",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-189",
+        "desc": "Graph Minor Damping trans = 0.145",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-190",
+        "desc": "Graph Minor Damping trans = 0.155",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-191",
+        "desc": "Treewidth DP Threshold k=2, limit 450",
+        "status": "REGRESSION",
+        "total_d2_faces": "5378",
+        "alpha_hat": "1.41791",
+        "verified": true
+      },
+      {
+        "id": "H-192",
+        "desc": "Treewidth DP Threshold k=2, limit 470",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-193",
+        "desc": "Treewidth DP Threshold k=2, limit 490",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-194",
+        "desc": "Treewidth DP Threshold k=2, limit 510",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-195",
+        "desc": "Treewidth-Aware Hybrid Split with gamma = 1.48",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      }
+    ]
+  },
+  "series_3": {
+    "series": 3,
+    "range": "H-196..H-215",
+    "count": 20,
+    "verified_count": 20,
+    "pareto_count": 0,
+    "regression_count": 20,
+    "elapsed_seconds": 374.82,
+    "hypotheses": [
+      {
+        "id": "H-196",
+        "desc": "Corridor Snapping Quantile [0.25, 0.75]",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-197",
+        "desc": "Corridor Snapping Quantile [0.15, 0.85]",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-198",
+        "desc": "Corridor Snapping Quantile [0.10, 0.90]",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-199",
+        "desc": "Corridor Snapping Quantile [0.30, 0.70]",
+        "status": "REGRESSION",
+        "total_d2_faces": "4246",
+        "alpha_hat": "1.27536",
+        "verified": true
+      },
+      {
+        "id": "H-200",
+        "desc": "Corridor Snapping Quantile [0.18, 0.82]",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-201",
+        "desc": "Discrete Corridor Snap lambda = 2.08",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-202",
+        "desc": "Discrete Corridor Snap lambda = 1.92",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-203",
+        "desc": "Discrete Corridor Snap lambda = 2.12",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-204",
+        "desc": "Discrete Corridor Snap lambda = 1.88",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-205",
+        "desc": "Corridor Distance Power p = 2.05",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-206",
+        "desc": "Corridor Distance Power p = 1.95",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-207",
+        "desc": "Corridor Distance Power p = 2.15",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-208",
+        "desc": "Corridor Distance Power p = 1.85",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-209",
+        "desc": "Adaptive Quantile Bracket [0.21, 0.79]",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-210",
+        "desc": "Adaptive Quantile Bracket [0.23, 0.77]",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-211",
+        "desc": "Discrete Snapping with trans = 0.148",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-212",
+        "desc": "Discrete Snapping with trans = 0.152",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-213",
+        "desc": "Corridor Centering with gamma = 1.495",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-214",
+        "desc": "Corridor Centering with gamma = 1.505",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-215",
+        "desc": "Symmetric Corridor Snap Grand Calibration",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      }
+    ]
+  },
+  "series_4": {
+    "series": 4,
+    "range": "H-216..H-235",
+    "count": 20,
+    "verified_count": 20,
+    "pareto_count": 0,
+    "regression_count": 20,
+    "elapsed_seconds": 356.99,
+    "hypotheses": [
+      {
+        "id": "H-216",
+        "desc": "Transverse Damping coeff = 0.06",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-217",
+        "desc": "Transverse Damping coeff = 0.08",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-218",
+        "desc": "Transverse Damping coeff = 0.10",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-219",
+        "desc": "Transverse Damping coeff = 0.11",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-220",
+        "desc": "Transverse Damping coeff = 0.12",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-221",
+        "desc": "Transverse Damping coeff = 0.13",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-222",
+        "desc": "Transverse Damping coeff = 0.14",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-223",
+        "desc": "Transverse Damping coeff = 0.16",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-224",
+        "desc": "Transverse Damping coeff = 0.17",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-225",
+        "desc": "Transverse Damping coeff = 0.18",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-226",
+        "desc": "Transverse Damping coeff = 0.19",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-227",
+        "desc": "Transverse Damping coeff = 0.21",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-228",
+        "desc": "Transverse Damping coeff = 0.23",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-229",
+        "desc": "Transverse Damping coeff = 0.26",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-230",
+        "desc": "Transverse Damping coeff = 0.30",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-231",
+        "desc": "Transverse Anisotropy with lambda = 2.06",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-232",
+        "desc": "Transverse Anisotropy with lambda = 1.94",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-233",
+        "desc": "Transverse Damping with gamma = 1.47",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-234",
+        "desc": "Transverse Damping with gamma = 1.53",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-235",
+        "desc": "Transverse Synthesis Final Check",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      }
+    ]
+  },
+  "series_5": {
+    "series": 5,
+    "range": "H-236..H-255",
+    "count": 20,
+    "verified_count": 20,
+    "pareto_count": 0,
+    "regression_count": 20,
+    "elapsed_seconds": 371.95,
+    "hypotheses": [
+      {
+        "id": "H-236",
+        "desc": "L1 Distance Regularization (p=1.0, lambda=1.5)",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-237",
+        "desc": "L1 Distance Regularization (p=1.0, lambda=2.0)",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-238",
+        "desc": "L1 Distance Regularization (p=1.0, lambda=2.5)",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-239",
+        "desc": "L1.5 Distance Regularization (p=1.5, lambda=2.0)",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-240",
+        "desc": "L1.8 Distance Regularization (p=1.8, lambda=2.0)",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-241",
+        "desc": "L2.2 Distance Regularization (p=2.2, lambda=2.0)",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-242",
+        "desc": "L2.5 Distance Regularization (p=2.5, lambda=2.0)",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-243",
+        "desc": "L3.0 Distance Regularization (p=3.0, lambda=2.0)",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-244",
+        "desc": "L4.0 Distance Regularization (p=4.0, lambda=2.0)",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-245",
+        "desc": "Pseudo-Huber Distance Penalty (delta=0.05)",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-246",
+        "desc": "Pseudo-Huber Distance Penalty (delta=0.10)",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-247",
+        "desc": "Pseudo-Huber Distance Penalty (delta=0.20)",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-248",
+        "desc": "Absolute Norm Distance Penalty (metric=abs)",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-249",
+        "desc": "Distance Penalty lambda = 2.04",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-250",
+        "desc": "Distance Penalty lambda = 1.96",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-251",
+        "desc": "Distance Penalty lambda = 2.14",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-252",
+        "desc": "Distance Penalty lambda = 1.86",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-253",
+        "desc": "Distance Penalty lambda = 2.22",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-254",
+        "desc": "Distance Penalty lambda = 1.78",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-255",
+        "desc": "Grand Multi-Norm Regularization Synthesis",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      }
+    ]
+  },
+  "series_6": {
+    "series": 6,
+    "range": "H-256..H-275",
+    "count": 20,
+    "verified_count": 20,
+    "pareto_count": 0,
+    "regression_count": 20,
+    "elapsed_seconds": 385.18,
+    "hypotheses": [
+      {
+        "id": "H-256",
+        "desc": "Ridge Power gamma = 1.20",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-257",
+        "desc": "Ridge Power gamma = 1.25",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-258",
+        "desc": "Ridge Power gamma = 1.30",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-259",
+        "desc": "Ridge Power gamma = 1.33",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-260",
+        "desc": "Ridge Power gamma = 1.37",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-261",
+        "desc": "Ridge Power gamma = 1.41",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-262",
+        "desc": "Ridge Power gamma = 1.43",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-263",
+        "desc": "Ridge Power gamma = 1.45",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-264",
+        "desc": "Ridge Power gamma = 1.47",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-265",
+        "desc": "Ridge Power gamma = 1.51",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-266",
+        "desc": "Ridge Power gamma = 1.53",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-267",
+        "desc": "Ridge Power gamma = 1.55",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-268",
+        "desc": "Ridge Power gamma = 1.57",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-269",
+        "desc": "Ridge Power gamma = 1.60",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-270",
+        "desc": "Ridge Power gamma = 1.63",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-271",
+        "desc": "Ridge Power gamma = 1.68",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-272",
+        "desc": "Ridge Power gamma = 1.74",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-273",
+        "desc": "Ridge Power gamma = 1.82",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-274",
+        "desc": "Ridge Power gamma = 1.90",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-275",
+        "desc": "Ridge Power gamma = 2.00",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      }
+    ]
+  },
+  "series_7": {
+    "series": 7,
+    "range": "H-276..H-295",
+    "count": 20,
+    "verified_count": 20,
+    "pareto_count": 0,
+    "regression_count": 20,
+    "elapsed_seconds": 397.34,
+    "hypotheses": [
+      {
+        "id": "H-276",
+        "desc": "Dense Leaf Limit k = 250",
+        "status": "REGRESSION",
+        "total_d2_faces": "7713",
+        "alpha_hat": "1.65755",
+        "verified": true
+      },
+      {
+        "id": "H-277",
+        "desc": "Dense Leaf Limit k = 270",
+        "status": "REGRESSION",
+        "total_d2_faces": "7059",
+        "alpha_hat": "1.56867",
+        "verified": true
+      },
+      {
+        "id": "H-278",
+        "desc": "Dense Leaf Limit k = 290",
+        "status": "REGRESSION",
+        "total_d2_faces": "7059",
+        "alpha_hat": "1.56867",
+        "verified": true
+      },
+      {
+        "id": "H-279",
+        "desc": "Dense Leaf Limit k = 310",
+        "status": "REGRESSION",
+        "total_d2_faces": "6222",
+        "alpha_hat": "1.50013",
+        "verified": true
+      },
+      {
+        "id": "H-280",
+        "desc": "Dense Leaf Limit k = 330",
+        "status": "REGRESSION",
+        "total_d2_faces": "6222",
+        "alpha_hat": "1.50013",
+        "verified": true
+      },
+      {
+        "id": "H-281",
+        "desc": "Dense Leaf Limit k = 350",
+        "status": "REGRESSION",
+        "total_d2_faces": "5378",
+        "alpha_hat": "1.41791",
+        "verified": true
+      },
+      {
+        "id": "H-282",
+        "desc": "Dense Leaf Limit k = 370",
+        "status": "REGRESSION",
+        "total_d2_faces": "5378",
+        "alpha_hat": "1.41791",
+        "verified": true
+      },
+      {
+        "id": "H-283",
+        "desc": "Dense Leaf Limit k = 390",
+        "status": "REGRESSION",
+        "total_d2_faces": "5378",
+        "alpha_hat": "1.41791",
+        "verified": true
+      },
+      {
+        "id": "H-284",
+        "desc": "Dense Leaf Limit k = 410",
+        "status": "REGRESSION",
+        "total_d2_faces": "5378",
+        "alpha_hat": "1.41791",
+        "verified": true
+      },
+      {
+        "id": "H-285",
+        "desc": "Dense Leaf Limit k = 430",
+        "status": "REGRESSION",
+        "total_d2_faces": "5378",
+        "alpha_hat": "1.41791",
+        "verified": true
+      },
+      {
+        "id": "H-286",
+        "desc": "Dense Leaf Limit k = 450",
+        "status": "REGRESSION",
+        "total_d2_faces": "5378",
+        "alpha_hat": "1.41791",
+        "verified": true
+      },
+      {
+        "id": "H-287",
+        "desc": "Dense Leaf Limit k = 470",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-288",
+        "desc": "Dense Leaf Limit k = 490",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-289",
+        "desc": "Dense Leaf Limit k = 505",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-290",
+        "desc": "Dense Leaf Limit k = 515",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-291",
+        "desc": "Dense Leaf Limit k = 530",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-292",
+        "desc": "Dense Leaf Limit k = 550",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-293",
+        "desc": "Dense Leaf Limit k = 575",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-294",
+        "desc": "Dense Leaf Limit k = 600",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-295",
+        "desc": "Dense Leaf Limit Synthesis",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      }
+    ]
+  },
+  "series_8": {
+    "series": 8,
+    "range": "H-296..H-315",
+    "count": 20,
+    "verified_count": 20,
+    "pareto_count": 0,
+    "regression_count": 20,
+    "elapsed_seconds": 395.29,
+    "hypotheses": [
+      {
+        "id": "H-296",
+        "desc": "Anti-Clique Cross-Axis Penalty gamma = 1.49",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-297",
+        "desc": "Anti-Clique Cross-Axis Penalty gamma = 1.51",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-298",
+        "desc": "Anti-Clique Damping trans = 0.145",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-299",
+        "desc": "Anti-Clique Damping trans = 0.155",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-300",
+        "desc": "Gadget Containment Probe lambda = 2.01",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-301",
+        "desc": "Gadget Containment Probe lambda = 1.99",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-302",
+        "desc": "Bipartite Projection Probe q = [0.21, 0.79]",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-303",
+        "desc": "Bipartite Projection Probe q = [0.22, 0.78]",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-304",
+        "desc": "Maximal Matching Ridge Factor lambda = 2.03",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-305",
+        "desc": "Maximal Matching Ridge Factor lambda = 1.97",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-306",
+        "desc": "Balanced Cut Penalty trans = 0.147",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-307",
+        "desc": "Balanced Cut Penalty trans = 0.153",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-308",
+        "desc": "Orthogonal Gadget Synthesis gamma = 1.502",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-309",
+        "desc": "Orthogonal Gadget Synthesis gamma = 1.498",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-310",
+        "desc": "Harmonic Mean Potential Proxy",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-311",
+        "desc": "Geometric Mean Potential Proxy",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-312",
+        "desc": "Minimax Risk Cut Policy Probe",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-313",
+        "desc": "Chebyshev Center Cut Policy Probe",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-314",
+        "desc": "Anti-Clique Multi-Objective Cut",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-315",
+        "desc": "Anti-Clique Grand Synthesis",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      }
+    ]
+  },
+  "series_9": {
+    "series": 9,
+    "range": "H-316..H-335",
+    "count": 20,
+    "verified_count": 20,
+    "pareto_count": 0,
+    "regression_count": 20,
+    "elapsed_seconds": 380.41,
+    "hypotheses": [
+      {
+        "id": "H-316",
+        "desc": "Pareto Objective Scalarization theta = 0.2",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-317",
+        "desc": "Pareto Objective Scalarization theta = 0.3",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-318",
+        "desc": "Pareto Objective Scalarization theta = 0.5",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-319",
+        "desc": "Pareto Objective Scalarization theta = 0.7",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-320",
+        "desc": "Pareto Objective Scalarization theta = 0.8",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-321",
+        "desc": "Lexicographic Optimization: Faces then Calls",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-322",
+        "desc": "Lexicographic Optimization: Calls then Faces",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-323",
+        "desc": "Bounded-Work Search gamma = 1.492",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-324",
+        "desc": "Bounded-Work Search gamma = 1.508",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-325",
+        "desc": "Augmented Lagrangian Formulation Probe",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-326",
+        "desc": "Elastic Net Trade-Off Formulation Probe",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-327",
+        "desc": "Asymptotic Convergence Rate Optimizer",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-328",
+        "desc": "Akra-Bazzi Homogeneous Root Minimizer",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-329",
+        "desc": "Multi-Objective Ridge Power gamma = 1.497",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-330",
+        "desc": "Multi-Objective Ridge Power gamma = 1.503",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-331",
+        "desc": "Multi-Objective Distance Weight lambda = 2.015",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-332",
+        "desc": "Multi-Objective Distance Weight lambda = 1.985",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-333",
+        "desc": "Multi-Objective Transverse Coeff = 0.1505",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-334",
+        "desc": "Multi-Objective Transverse Coeff = 0.1495",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-335",
+        "desc": "Multi-Objective Synthesis Final Candidate",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      }
+    ]
+  },
+  "series_10": {
+    "series": 10,
+    "range": "H-336..H-355",
+    "count": 20,
+    "verified_count": 20,
+    "pareto_count": 0,
+    "regression_count": 20,
+    "elapsed_seconds": 382.05,
+    "hypotheses": [
+      {
+        "id": "H-336",
+        "desc": "Global Lower Bound Probe: Zero-Span Corridor",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-337",
+        "desc": "Global Lower Bound Probe: Unit-Span Corridor",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-338",
+        "desc": "Input-Level Irreducible Face Certificate (n=64)",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-339",
+        "desc": "Input-Level Irreducible Face Certificate (n=128)",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-340",
+        "desc": "Input-Level Irreducible Face Certificate (n=256)",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-341",
+        "desc": "Input-Level Irreducible Face Certificate (n=512)",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-342",
+        "desc": "Exhaustive 1-Step Partition Optimality Probe",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-343",
+        "desc": "Symmetry-Invariant Cut Verification",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-344",
+        "desc": "Coordinate Scaling Invariance Probe",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-345",
+        "desc": "Coordinate Translation Invariance Probe",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-346",
+        "desc": "Box Reordering Permutation Invariance Probe",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-347",
+        "desc": "Deterministic Tie-Breaking Stability Probe",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-348",
+        "desc": "128-Bit Overflow Boundary Safety Stress Test",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-349",
+        "desc": "Zero-Volume Degenerate Box Stress Test",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-350",
+        "desc": "Duplicate Box Idempotency Stress Test",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-351",
+        "desc": "Disjoint Box Union Stress Test",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-352",
+        "desc": "Giant Spanning Box Absorption Stress Test",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-353",
+        "desc": "Dense Hypercube Lattice Stress Test",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-354",
+        "desc": "Trellis Weave Aspect Ratio Perturbation Test",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      },
+      {
+        "id": "H-355",
+        "desc": "Global Structural Synthesis & Empirical Lower Bound Champion",
+        "status": "REGRESSION",
+        "total_d2_faces": "4161",
+        "alpha_hat": "1.26249",
+        "verified": true
+      }
+    ]
+  }
+}

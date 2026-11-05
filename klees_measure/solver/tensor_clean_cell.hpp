@@ -364,7 +364,76 @@ inline Int128 evaluate_tensor_clean_cell_d4(
         }
     }
 
-    // Step 4: Build binary adjacency matrices A^{(u, v)} for all 6 pairs
+    // Step 3.5: Fast-Path Treewidth & Sparsity Early Exits
+    // 1. Degenerate axis: if any axis is 100% covered by 1-slabs, complement volume is 0
+    int64_t sum_D[4] = {0, 0, 0, 0};
+    for (int i = 0; i < d; ++i) {
+        for (size_t r = 0; r < V[i]; ++r) {
+            sum_D[i] += D[i][r];
+        }
+        if (sum_D[i] == 0) {
+            return cell.volume();
+        }
+    }
+
+    // 2. Count active 2-slab edges in interaction graph G = (V_4, E_2)
+    int edge_count = 0;
+    int single_u = -1, single_v = -1;
+    for (int u = 0; u < d; ++u) {
+        for (int v = u + 1; v < d; ++v) {
+            if (!slabs_2[u][v].empty()) {
+                edge_count++;
+                single_u = u;
+                single_v = v;
+            }
+        }
+    }
+
+    // Treewidth tw=0 (Empty interaction graph, pure 1-slab tensor product)
+    if (edge_count == 0) {
+        Int128 comp_vol = Int128(sum_D[0]) * sum_D[1];
+        comp_vol = comp_vol * sum_D[2];
+        comp_vol = comp_vol * sum_D[3];
+        return cell.volume() - comp_vol;
+    }
+
+    // Treewidth tw=1 (Single active 2-slab ridge, other 2 axes unconstrained)
+    if (edge_count == 1) {
+        int u = single_u, v = single_v;
+        int rem[2], rem_idx = 0;
+        for (int i = 0; i < d; ++i) {
+            if (i != u && i != v) rem[rem_idx++] = i;
+        }
+
+        Int128 inner(0);
+        for (size_t ru = 0; ru < V[u]; ++ru) {
+            int64_t wu = D[u][ru];
+            if (wu == 0) continue;
+            int64_t lu = elementary[u][ru].first, hu = elementary[u][ru].second;
+            int64_t row_v = 0;
+            for (size_t rv = 0; rv < V[v]; ++rv) {
+                int64_t wv = D[v][rv];
+                if (wv == 0) continue;
+                int64_t lv = elementary[v][rv].first, hv = elementary[v][rv].second;
+                bool cov = false;
+                for (const auto& s : slabs_2[u][v]) {
+                    if (s.a1 <= lu && s.b1 >= hu && s.a2 <= lv && s.b2 >= hv) {
+                        cov = true;
+                        break;
+                    }
+                }
+                if (!cov) row_v += wv;
+            }
+            if (row_v > 0) {
+                inner += Int128(wu) * row_v;
+            }
+        }
+        Int128 comp_vol = inner * sum_D[rem[0]];
+        comp_vol = comp_vol * sum_D[rem[1]];
+        return cell.volume() - comp_vol;
+    }
+
+    // Step 4: Build binary adjacency matrices A^{(u, v)} for active pairs
     std::vector<uint8_t> A[4][4];
     for (int u = 0; u < d; ++u) {
         for (int v = u + 1; v < d; ++v) {
