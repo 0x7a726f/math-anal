@@ -10,7 +10,7 @@
     "4": 61,
     "5": 39
   },
-  "total_wall_clock_seconds": 0.77,
+  "total_wall_clock_seconds": 0.771,
   "results": [
     {
       "test_id": 1,
@@ -21,8 +21,8 @@
       "max_bag_size": 2,
       "volume": 21114313,
       "match": true,
-      "dp_time_ms": 0.592,
-      "sweep_time_ms": 0.312,
+      "dp_time_ms": 0.603,
+      "sweep_time_ms": 0.306,
       "grid_sum_checked": true
     },
     {
@@ -34,8 +34,8 @@
       "max_bag_size": 4,
       "volume": 87458432,
       "match": true,
-      "dp_time_ms": 1.031,
-      "sweep_time_ms": 3.557,
+      "dp_time_ms": 1.329,
+      "sweep_time_ms": 3.196,
       "grid_sum_checked": true
     },
     {
@@ -47,8 +47,8 @@
       "max_bag_size": 2,
       "volume": 49646648,
       "match": true,
-      "dp_time_ms": 1.126,
-      "sweep_time_ms": 1.157,
+      "dp_time_ms": 0.856,
+      "sweep_time_ms": 1.138,
       "grid_sum_checked": true
     },
     {
@@ -60,8 +60,8 @@
       "max_bag_size": 3,
       "volume": 8165745,
       "match": true,
-      "dp_time_ms": 1.008,
-      "sweep_time_ms": 2.476,
+      "dp_time_ms": 1.266,
+      "sweep_time_ms": 2.431,
       "grid_sum_checked": true
     },
     {
@@ -73,7 +73,7 @@
       "max_bag_size": 2,
       "volume": 3008297712,
       "match": true,
-      "dp_time_ms": 0.693,
+      "dp_time_ms": 0.655,
       "sweep_time_ms": 0.312,
       "grid_sum_checked": true
     },
@@ -86,8 +86,8 @@
       "max_bag_size": 2,
       "volume": 6113607,
       "match": true,
-      "dp_time_ms": 0.455,
-      "sweep_time_ms": 0.499,
+      "dp_time_ms": 0.449,
+      "sweep_time_ms": 0.507,
       "grid_sum_checked": true
     },
     {
@@ -99,8 +99,8 @@
       "max_bag_size": 2,
       "volume": 247345216,
       "match": true,
-      "dp_time_ms": 0.765,
-      "sweep_time_ms": 0.133,
+      "dp_time_ms": 0.548,
+      "sweep_time_ms": 0.108,
       "grid_sum_checked": true
     },
     {
@@ -112,8 +112,8 @@
       "max_bag_size": 2,
       "volume": 19500280,
       "match": true,
-      "dp_time_ms": 0.326,
-      "sweep_time_ms": 0.059,
+      "dp_time_ms": 0.241,
+      "sweep_time_ms": 0.056,
       "grid_sum_checked": true
     },
     {
@@ -126,7 +126,7 @@
       "volume": 29639812,
       "match": true,
       "dp_time_ms": 0.309,
-      "sweep_time_ms": 0.143,
+      "sweep_time_ms": 0.144,
       "grid_sum_checked": true
     },
     {
@@ -138,8 +138,8 @@
       "max_bag_size": 2,
       "volume": 943607904,
       "match": true,
-      "dp_time_ms": 0.862,
-      "sweep_time_ms": 0.101,
+      "dp_time_ms": 0.585,
+      "sweep_time_ms": 0.079,
       "grid_sum_checked": true
     },
     {
@@ -151,8 +151,8 @@
       "max_bag_size": 3,
       "volume": 5859208,
       "match": true,
-      "dp_time_ms": 0.534,
-      "sweep_time_ms": 1.16,
+      "dp_time_ms": 0.472,
+      "sweep_time_ms": 1.012,
       "grid_sum_checked": true
     },
     {
@@ -164,8 +164,8 @@
       "max_bag_size": 2,
       "volume": 3512565,
       "match": true,
-      "dp_time_ms": 0.355,
-      "sweep_time_ms": 0.127,
+      "dp_time_ms": 0.352,
+      "sweep_time_ms": 0.129,
       "grid_sum_checked": true
     },
     {
@@ -177,8 +177,8 @@
       "max_bag_size": 2,
       "volume": 10822109,
       "match": true,
-      "dp_time_ms": 0.645,
-      "sweep_time_ms": 3.057,
+      "dp_time_ms": 0.766,
+      "sweep_time_ms": 2.733,
       "grid_sum_checked": true
     },
     {
@@ -190,8 +190,8 @@
       "max_bag_size": 2,
       "volume": 4726234,
       "match": true,
-      "dp_time_ms": 0.588,
-      "sweep_time_ms": 0.876,
+      "dp_time_ms": 0.64,
+      "sweep_time_ms": 0.93,
       "grid_sum_checked": true
     },
     {
@@ -203,8 +203,8 @@
       "max_bag_size": 2,
       "volume": 64908389,
       "match": true,
-      "dp_time_ms": 0.346,
-      "sweep_time_ms": 0.1,
+      "dp_time_ms": 0.417,
+      "sweep_time_ms": 0.101,
       "grid_sum_checked": true
     },
     {
@@ -216,8 +216,8 @@
       "max_bag_size": 2,
       "volume": 659777086,
       "match": true,
-      "dp_time_ms": 0.81,
-      "sweep_time_ms": 3.744,
+      "dp_time_ms": 0.731,
+      "sweep_time_ms": 4.22,
       "grid_sum_checked": false
     },
     {
@@ -229,8 +229,8 @@
       "max_bag_size": 2,
       "volume": 24194676,
       "match": true,
-      "dp_time_ms": 0.457,
-      "sweep_time_ms": 0.593,
+      "dp_time_ms": 0.506,
+      "sweep_time_ms": 0.608,
       "grid_sum_checked": false
     },
     {
@@ -242,8 +242,8 @@
       "max_bag_size": 2,
       "volume": 2287352672,
       "match": true,
-      "dp_time_ms": 0.682,
-      "sweep_time_ms": 5.142,
+      "dp_time_ms": 1.723,
+      "sweep_time_ms": 6.573,
       "grid_sum_checked": false
     },
     {
@@ -255,8 +255,8 @@
       "max_bag_size": 2,
       "volume": 831773265,
       "match": true,
-      "dp_time_ms": 1.031,
-      "sweep_time_ms": 6.026,
+      "dp_time_ms": 0.971,
+      "sweep_time_ms": 6.366,
       "grid_sum_checked": false
     },
     {
@@ -268,8 +268,8 @@
       "max_bag_size": 2,
       "volume": 46470186,
       "match": true,
-      "dp_time_ms": 0.399,
-      "sweep_time_ms": 0.136,
+      "dp_time_ms": 0.403,
+      "sweep_time_ms": 0.139,
       "grid_sum_checked": true
     },
     {
@@ -281,8 +281,8 @@
       "max_bag_size": 3,
       "volume": 128989382,
       "match": true,
-      "dp_time_ms": 0.69,
-      "sweep_time_ms": 2.07,
+      "dp_time_ms": 0.842,
+      "sweep_time_ms": 2.055,
       "grid_sum_checked": false
     },
     {
@@ -294,8 +294,8 @@
       "max_bag_size": 3,
       "volume": 67887251,
       "match": true,
-      "dp_time_ms": 0.835,
-      "sweep_time_ms": 3.421,
+      "dp_time_ms": 0.746,
+      "sweep_time_ms": 3.662,
       "grid_sum_checked": false
     },
     {
@@ -307,8 +307,8 @@
       "max_bag_size": 2,
       "volume": 714115220,
       "match": true,
-      "dp_time_ms": 0.581,
-      "sweep_time_ms": 0.335,
+      "dp_time_ms": 0.603,
+      "sweep_time_ms": 0.259,
       "grid_sum_checked": false
     },
     {
@@ -320,8 +320,8 @@
       "max_bag_size": 3,
       "volume": 23693440,
       "match": true,
-      "dp_time_ms": 0.853,
-      "sweep_time_ms": 3.001,
+      "dp_time_ms": 0.76,
+      "sweep_time_ms": 3.209,
       "grid_sum_checked": false
     },
     {
@@ -333,7 +333,7 @@
       "max_bag_size": 2,
       "volume": 112021063,
       "match": true,
-      "dp_time_ms": 0.509,
+      "dp_time_ms": 0.542,
       "sweep_time_ms": 0.181,
       "grid_sum_checked": false
     },
@@ -346,8 +346,8 @@
       "max_bag_size": 2,
       "volume": 1461450843,
       "match": true,
-      "dp_time_ms": 0.578,
-      "sweep_time_ms": 1.97,
+      "dp_time_ms": 0.568,
+      "sweep_time_ms": 1.48,
       "grid_sum_checked": false
     },
     {
@@ -359,8 +359,8 @@
       "max_bag_size": 2,
       "volume": 1629380908,
       "match": true,
-      "dp_time_ms": 0.729,
-      "sweep_time_ms": 5.288,
+      "dp_time_ms": 0.813,
+      "sweep_time_ms": 4.945,
       "grid_sum_checked": false
     },
     {
@@ -372,8 +372,8 @@
       "max_bag_size": 4,
       "volume": 5039595,
       "match": true,
-      "dp_time_ms": 1.245,
-      "sweep_time_ms": 4.356,
+      "dp_time_ms": 1.428,
+      "sweep_time_ms": 4.198,
       "grid_sum_checked": false
     },
     {
@@ -385,8 +385,8 @@
       "max_bag_size": 2,
       "volume": 2225151729,
       "match": true,
-      "dp_time_ms": 0.619,
-      "sweep_time_ms": 0.192,
+      "dp_time_ms": 0.71,
+      "sweep_time_ms": 0.204,
       "grid_sum_checked": false
     },
     {
@@ -398,7 +398,7 @@
       "max_bag_size": 2,
       "volume": 3714012,
       "match": true,
-      "dp_time_ms": 0.235,
+      "dp_time_ms": 0.253,
       "sweep_time_ms": 0.084,
       "grid_sum_checked": false
     },
@@ -411,8 +411,8 @@
       "max_bag_size": 2,
       "volume": 23929684,
       "match": true,
-      "dp_time_ms": 0.349,
-      "sweep_time_ms": 0.259,
+      "dp_time_ms": 0.354,
+      "sweep_time_ms": 0.255,
       "grid_sum_checked": false
     },
     {
@@ -424,8 +424,8 @@
       "max_bag_size": 2,
       "volume": 71286720,
       "match": true,
-      "dp_time_ms": 0.66,
-      "sweep_time_ms": 0.221,
+      "dp_time_ms": 0.617,
+      "sweep_time_ms": 0.217,
       "grid_sum_checked": false
     },
     {
@@ -437,8 +437,8 @@
       "max_bag_size": 2,
       "volume": 9288460,
       "match": true,
-      "dp_time_ms": 0.357,
-      "sweep_time_ms": 0.127,
+      "dp_time_ms": 0.277,
+      "sweep_time_ms": 0.121,
       "grid_sum_checked": false
     },
     {
@@ -450,8 +450,8 @@
       "max_bag_size": 2,
       "volume": 14688599,
       "match": true,
-      "dp_time_ms": 0.608,
-      "sweep_time_ms": 2.131,
+      "dp_time_ms": 0.543,
+      "sweep_time_ms": 1.984,
       "grid_sum_checked": false
     },
     {
@@ -463,8 +463,8 @@
       "max_bag_size": 3,
       "volume": 72165475,
       "match": true,
-      "dp_time_ms": 0.478,
-      "sweep_time_ms": 0.533,
+      "dp_time_ms": 0.564,
+      "sweep_time_ms": 0.705,
       "grid_sum_checked": false
     },
     {
@@ -476,8 +476,8 @@
       "max_bag_size": 2,
       "volume": 1780007511,
       "match": true,
-      "dp_time_ms": 0.589,
-      "sweep_time_ms": 2.733,
+      "dp_time_ms": 0.639,
+      "sweep_time_ms": 2.329,
       "grid_sum_checked": false
     },
     {
@@ -489,8 +489,8 @@
       "max_bag_size": 2,
       "volume": 58262782,
       "match": true,
-      "dp_time_ms": 0.333,
-      "sweep_time_ms": 0.054,
+      "dp_time_ms": 0.27,
+      "sweep_time_ms": 0.053,
       "grid_sum_checked": false
     },
     {
@@ -502,8 +502,8 @@
       "max_bag_size": 3,
       "volume": 2489346912,
       "match": true,
-      "dp_time_ms": 0.849,
-      "sweep_time_ms": 0.506,
+      "dp_time_ms": 0.742,
+      "sweep_time_ms": 0.455,
       "grid_sum_checked": false
     },
     {
@@ -515,8 +515,8 @@
       "max_bag_size": 2,
       "volume": 33044236,
       "match": true,
-      "dp_time_ms": 0.36,
-      "sweep_time_ms": 0.163,
+      "dp_time_ms": 0.367,
+      "sweep_time_ms": 0.165,
       "grid_sum_checked": false
     },
     {
@@ -529,7 +529,7 @@
       "volume": 17175570,
       "match": true,
       "dp_time_ms": 0.484,
-      "sweep_time_ms": 1.458,
+      "sweep_time_ms": 1.092,
       "grid_sum_checked": true
     },
     {
@@ -541,7 +541,7 @@
       "max_bag_size": 2,
       "volume": 30349840,
       "match": true,
-      "dp_time_ms": 0.347,
+      "dp_time_ms": 0.354,
       "sweep_time_ms": 0.082,
       "grid_sum_checked": false
     },
@@ -554,7 +554,7 @@
       "max_bag_size": 2,
       "volume": 5298895966,
       "match": true,
-      "dp_time_ms": 0.517,
+      "dp_time_ms": 0.51,
       "sweep_time_ms": 0.105,
       "grid_sum_checked": false
     },
@@ -567,8 +567,8 @@
       "max_bag_size": 2,
       "volume": 515851200,
       "match": true,
-      "dp_time_ms": 0.553,
-      "sweep_time_ms": 0.096,
+      "dp_time_ms": 0.55,
+      "sweep_time_ms": 0.097,
       "grid_sum_checked": false
     },
     {
@@ -580,8 +580,8 @@
       "max_bag_size": 3,
       "volume": 34297585,
       "match": true,
-      "dp_time_ms": 0.719,
-      "sweep_time_ms": 1.977,
+      "dp_time_ms": 0.718,
+      "sweep_time_ms": 2.342,
       "grid_sum_checked": false
     },
     {
@@ -593,8 +593,8 @@
       "max_bag_size": 3,
       "volume": 2316968,
       "match": true,
-      "dp_time_ms": 0.489,
-      "sweep_time_ms": 0.74,
+      "dp_time_ms": 0.475,
+      "sweep_time_ms": 0.731,
       "grid_sum_checked": false
     },
     {
@@ -606,8 +606,8 @@
       "max_bag_size": 2,
       "volume": 612266394,
       "match": true,
-      "dp_time_ms": 0.676,
-      "sweep_time_ms": 0.733,
+      "dp_time_ms": 0.648,
+      "sweep_time_ms": 0.741,
       "grid_sum_checked": false
     },
     {
@@ -619,8 +619,8 @@
       "max_bag_size": 2,
       "volume": 8013609,
       "match": true,
-      "dp_time_ms": 0.496,
-      "sweep_time_ms": 1.781,
+      "dp_time_ms": 0.492,
+      "sweep_time_ms": 1.528,
       "grid_sum_checked": false
     },
     {
@@ -632,7 +632,7 @@
       "max_bag_size": 3,
       "volume": 5027947,
       "match": true,
-      "dp_time_ms": 0.595,
+      "dp_time_ms": 0.51,
       "sweep_time_ms": 0.921,
       "grid_sum_checked": false
     },
@@ -645,8 +645,8 @@
       "max_bag_size": 2,
       "volume": 5077440368,
       "match": true,
-      "dp_time_ms": 0.753,
-      "sweep_time_ms": 5.0,
+      "dp_time_ms": 0.705,
+      "sweep_time_ms": 5.273,
       "grid_sum_checked": false
     },
     {
@@ -658,8 +658,8 @@
       "max_bag_size": 3,
       "volume": 5000592,
       "match": true,
-      "dp_time_ms": 0.52,
-      "sweep_time_ms": 1.562,
+      "dp_time_ms": 0.515,
+      "sweep_time_ms": 1.615,
       "grid_sum_checked": false
     },
     {
@@ -671,8 +671,8 @@
       "max_bag_size": 2,
       "volume": 1997377146,
       "match": true,
-      "dp_time_ms": 0.458,
-      "sweep_time_ms": 0.1,
+      "dp_time_ms": 0.613,
+      "sweep_time_ms": 0.103,
       "grid_sum_checked": false
     },
     {
@@ -684,8 +684,8 @@
       "max_bag_size": 2,
       "volume": 9833843,
       "match": true,
-      "dp_time_ms": 0.428,
-      "sweep_time_ms": 0.607,
+      "dp_time_ms": 0.371,
+      "sweep_time_ms": 0.42,
       "grid_sum_checked": false
     },
     {
@@ -697,8 +697,8 @@
       "max_bag_size": 2,
       "volume": 26296721,
       "match": true,
-      "dp_time_ms": 0.457,
-      "sweep_time_ms": 0.259,
+      "dp_time_ms": 0.353,
+      "sweep_time_ms": 0.312,
       "grid_sum_checked": false
     },
     {
@@ -710,8 +710,8 @@
       "max_bag_size": 2,
       "volume": 3033380,
       "match": true,
-      "dp_time_ms": 0.352,
-      "sweep_time_ms": 0.474,
+      "dp_time_ms": 0.345,
+      "sweep_time_ms": 0.436,
       "grid_sum_checked": false
     },
     {
@@ -723,8 +723,8 @@
       "max_bag_size": 3,
       "volume": 11522917,
       "match": true,
-      "dp_time_ms": 0.389,
-      "sweep_time_ms": 0.535,
+      "dp_time_ms": 0.363,
+      "sweep_time_ms": 0.536,
       "grid_sum_checked": false
     },
     {
@@ -736,8 +736,8 @@
       "max_bag_size": 2,
       "volume": 19047325,
       "match": true,
-      "dp_time_ms": 0.335,
-      "sweep_time_ms": 0.327,
+      "dp_time_ms": 0.331,
+      "sweep_time_ms": 0.328,
       "grid_sum_checked": false
     },
     {
@@ -749,8 +749,8 @@
       "max_bag_size": 2,
       "volume": 534128517,
       "match": true,
-      "dp_time_ms": 0.454,
-      "sweep_time_ms": 0.055,
+      "dp_time_ms": 0.455,
+      "sweep_time_ms": 0.056,
       "grid_sum_checked": false
     },
     {
@@ -762,8 +762,8 @@
       "max_bag_size": 3,
       "volume": 700136939,
       "match": true,
-      "dp_time_ms": 0.781,
-      "sweep_time_ms": 3.851,
+      "dp_time_ms": 1.021,
+      "sweep_time_ms": 3.438,
       "grid_sum_checked": false
     },
     {
@@ -775,8 +775,8 @@
       "max_bag_size": 2,
       "volume": 61493168,
       "match": true,
-      "dp_time_ms": 0.419,
-      "sweep_time_ms": 0.634,
+      "dp_time_ms": 0.392,
+      "sweep_time_ms": 0.611,
       "grid_sum_checked": false
     },
     {
@@ -788,8 +788,8 @@
       "max_bag_size": 3,
       "volume": 7600528,
       "match": true,
-      "dp_time_ms": 0.527,
-      "sweep_time_ms": 1.667,
+      "dp_time_ms": 0.728,
+      "sweep_time_ms": 1.636,
       "grid_sum_checked": true
     },
     {
@@ -801,7 +801,7 @@
       "max_bag_size": 2,
       "volume": 15506003,
       "match": true,
-      "dp_time_ms": 0.401,
+      "dp_time_ms": 0.385,
       "sweep_time_ms": 0.228,
       "grid_sum_checked": false
     },
@@ -815,7 +815,7 @@
       "volume": 14262534,
       "match": true,
       "dp_time_ms": 0.288,
-      "sweep_time_ms": 0.051,
+      "sweep_time_ms": 0.05,
       "grid_sum_checked": false
     },
     {
@@ -827,8 +827,8 @@
       "max_bag_size": 3,
       "volume": 39476881,
       "match": true,
-      "dp_time_ms": 0.459,
-      "sweep_time_ms": 0.936,
+      "dp_time_ms": 0.444,
+      "sweep_time_ms": 0.939,
       "grid_sum_checked": false
     },
     {
@@ -840,8 +840,8 @@
       "max_bag_size": 2,
       "volume": 2398979139,
       "match": true,
-      "dp_time_ms": 0.622,
-      "sweep_time_ms": 0.439,
+      "dp_time_ms": 0.621,
+      "sweep_time_ms": 0.622,
       "grid_sum_checked": false
     },
     {
@@ -853,8 +853,8 @@
       "max_bag_size": 2,
       "volume": 9719404,
       "match": true,
-      "dp_time_ms": 0.474,
-      "sweep_time_ms": 1.517,
+      "dp_time_ms": 0.525,
+      "sweep_time_ms": 1.464,
       "grid_sum_checked": false
     },
     {
@@ -866,7 +866,7 @@
       "max_bag_size": 2,
       "volume": 1719420,
       "match": true,
-      "dp_time_ms": 0.499,
+      "dp_time_ms": 0.473,
       "sweep_time_ms": 0.375,
       "grid_sum_checked": false
     },
@@ -879,8 +879,8 @@
       "max_bag_size": 2,
       "volume": 62611076,
       "match": true,
-      "dp_time_ms": 0.458,
-      "sweep_time_ms": 1.423,
+      "dp_time_ms": 0.455,
+      "sweep_time_ms": 1.428,
       "grid_sum_checked": false
     },
     {
@@ -892,8 +892,8 @@
       "max_bag_size": 2,
       "volume": 1870817625,
       "match": true,
-      "dp_time_ms": 0.494,
-      "sweep_time_ms": 1.235,
+      "dp_time_ms": 0.596,
+      "sweep_time_ms": 1.148,
       "grid_sum_checked": false
     },
     {
@@ -905,8 +905,8 @@
       "max_bag_size": 2,
       "volume": 341364715,
       "match": true,
-      "dp_time_ms": 0.766,
-      "sweep_time_ms": 1.063,
+      "dp_time_ms": 0.636,
+      "sweep_time_ms": 1.036,
       "grid_sum_checked": false
     },
     {
@@ -918,8 +918,8 @@
       "max_bag_size": 2,
       "volume": 49431252,
       "match": true,
-      "dp_time_ms": 0.67,
-      "sweep_time_ms": 0.936,
+      "dp_time_ms": 0.641,
+      "sweep_time_ms": 0.796,
       "grid_sum_checked": false
     },
     {
@@ -931,8 +931,8 @@
       "max_bag_size": 2,
       "volume": 1356888105,
       "match": true,
-      "dp_time_ms": 0.578,
-      "sweep_time_ms": 0.361,
+      "dp_time_ms": 0.495,
+      "sweep_time_ms": 0.224,
       "grid_sum_checked": false
     },
     {
@@ -944,8 +944,8 @@
       "max_bag_size": 3,
       "volume": 15463583,
       "match": true,
-      "dp_time_ms": 0.61,
-      "sweep_time_ms": 1.426,
+      "dp_time_ms": 0.722,
+      "sweep_time_ms": 1.435,
       "grid_sum_checked": false
     },
     {
@@ -957,8 +957,8 @@
       "max_bag_size": 3,
       "volume": 53440240,
       "match": true,
-      "dp_time_ms": 0.716,
-      "sweep_time_ms": 2.165,
+      "dp_time_ms": 0.777,
+      "sweep_time_ms": 2.161,
       "grid_sum_checked": false
     },
     {
@@ -970,8 +970,8 @@
       "max_bag_size": 2,
       "volume": 80027731,
       "match": true,
-      "dp_time_ms": 0.324,
-      "sweep_time_ms": 0.131,
+      "dp_time_ms": 0.259,
+      "sweep_time_ms": 0.095,
       "grid_sum_checked": false
     },
     {
@@ -983,8 +983,8 @@
       "max_bag_size": 2,
       "volume": 1743523440,
       "match": true,
-      "dp_time_ms": 0.744,
-      "sweep_time_ms": 1.266,
+      "dp_time_ms": 0.738,
+      "sweep_time_ms": 1.29,
       "grid_sum_checked": false
     },
     {
@@ -996,8 +996,8 @@
       "max_bag_size": 2,
       "volume": 4854815,
       "match": true,
-      "dp_time_ms": 0.358,
-      "sweep_time_ms": 0.64,
+      "dp_time_ms": 0.36,
+      "sweep_time_ms": 0.644,
       "grid_sum_checked": false
     },
     {
@@ -1009,8 +1009,8 @@
       "max_bag_size": 2,
       "volume": 37302431,
       "match": true,
-      "dp_time_ms": 0.58,
-      "sweep_time_ms": 2.022,
+      "dp_time_ms": 0.572,
+      "sweep_time_ms": 1.947,
       "grid_sum_checked": false
     },
     {
@@ -1022,8 +1022,8 @@
       "max_bag_size": 2,
       "volume": 303976200,
       "match": true,
-      "dp_time_ms": 0.859,
-      "sweep_time_ms": 0.084,
+      "dp_time_ms": 0.717,
+      "sweep_time_ms": 0.102,
       "grid_sum_checked": false
     },
     {
@@ -1035,8 +1035,8 @@
       "max_bag_size": 2,
       "volume": 6236931,
       "match": true,
-      "dp_time_ms": 0.478,
-      "sweep_time_ms": 2.175,
+      "dp_time_ms": 0.496,
+      "sweep_time_ms": 2.201,
       "grid_sum_checked": false
     },
     {
@@ -1048,8 +1048,8 @@
       "max_bag_size": 2,
       "volume": 30227256,
       "match": true,
-      "dp_time_ms": 0.261,
-      "sweep_time_ms": 0.099,
+      "dp_time_ms": 0.257,
+      "sweep_time_ms": 0.098,
       "grid_sum_checked": true
     },
     {
@@ -1061,8 +1061,8 @@
       "max_bag_size": 2,
       "volume": 1059954850,
       "match": true,
-      "dp_time_ms": 0.906,
-      "sweep_time_ms": 1.756,
+      "dp_time_ms": 0.668,
+      "sweep_time_ms": 2.07,
       "grid_sum_checked": false
     },
     {
@@ -1074,8 +1074,8 @@
       "max_bag_size": 2,
       "volume": 109036409,
       "match": true,
-      "dp_time_ms": 0.799,
-      "sweep_time_ms": 6.076,
+      "dp_time_ms": 0.889,
+      "sweep_time_ms": 6.679,
       "grid_sum_checked": false
     },
     {
@@ -1087,8 +1087,8 @@
       "max_bag_size": 2,
       "volume": 51466489,
       "match": true,
-      "dp_time_ms": 0.452,
-      "sweep_time_ms": 0.838,
+      "dp_time_ms": 0.451,
+      "sweep_time_ms": 0.994,
       "grid_sum_checked": false
     },
     {
@@ -1100,8 +1100,8 @@
       "max_bag_size": 2,
       "volume": 58773964,
       "match": true,
-      "dp_time_ms": 0.607,
-      "sweep_time_ms": 2.222,
+      "dp_time_ms": 0.656,
+      "sweep_time_ms": 2.156,
       "grid_sum_checked": false
     },
     {
@@ -1113,8 +1113,8 @@
       "max_bag_size": 2,
       "volume": 3016424368,
       "match": true,
-      "dp_time_ms": 0.651,
-      "sweep_time_ms": 0.306,
+      "dp_time_ms": 0.599,
+      "sweep_time_ms": 0.304,
       "grid_sum_checked": false
     },
     {
@@ -1126,8 +1126,8 @@
       "max_bag_size": 2,
       "volume": 59953608,
       "match": true,
-      "dp_time_ms": 0.437,
-      "sweep_time_ms": 2.295,
+      "dp_time_ms": 0.427,
+      "sweep_time_ms": 2.375,
       "grid_sum_checked": false
     },
     {
@@ -1139,8 +1139,8 @@
       "max_bag_size": 2,
       "volume": 13754491,
       "match": true,
-      "dp_time_ms": 0.54,
-      "sweep_time_ms": 1.474,
+      "dp_time_ms": 0.606,
+      "sweep_time_ms": 1.32,
       "grid_sum_checked": false
     },
     {
@@ -1152,8 +1152,8 @@
       "max_bag_size": 3,
       "volume": 4183656,
       "match": true,
-      "dp_time_ms": 0.667,
-      "sweep_time_ms": 2.181,
+      "dp_time_ms": 0.595,
+      "sweep_time_ms": 2.436,
       "grid_sum_checked": false
     },
     {
@@ -1165,8 +1165,8 @@
       "max_bag_size": 2,
       "volume": 130141683,
       "match": true,
-      "dp_time_ms": 0.731,
-      "sweep_time_ms": 8.528,
+      "dp_time_ms": 0.799,
+      "sweep_time_ms": 8.044,
       "grid_sum_checked": false
     },
     {
@@ -1178,8 +1178,8 @@
       "max_bag_size": 2,
       "volume": 1108544325,
       "match": true,
-      "dp_time_ms": 0.851,
-      "sweep_time_ms": 6.323,
+      "dp_time_ms": 0.833,
+      "sweep_time_ms": 6.031,
       "grid_sum_checked": false
     },
     {
@@ -1191,8 +1191,8 @@
       "max_bag_size": 3,
       "volume": 712469113,
       "match": true,
-      "dp_time_ms": 0.946,
-      "sweep_time_ms": 3.615,
+      "dp_time_ms": 1.083,
+      "sweep_time_ms": 3.696,
       "grid_sum_checked": false
     },
     {
@@ -1204,8 +1204,8 @@
       "max_bag_size": 2,
       "volume": 832256156,
       "match": true,
-      "dp_time_ms": 0.679,
-      "sweep_time_ms": 1.664,
+      "dp_time_ms": 0.645,
+      "sweep_time_ms": 2.269,
       "grid_sum_checked": false
     },
     {
@@ -1217,8 +1217,8 @@
       "max_bag_size": 2,
       "volume": 5098697,
       "match": true,
-      "dp_time_ms": 0.424,
-      "sweep_time_ms": 0.379,
+      "dp_time_ms": 0.486,
+      "sweep_time_ms": 0.377,
       "grid_sum_checked": false
     },
     {
@@ -1230,8 +1230,8 @@
       "max_bag_size": 2,
       "volume": 6122583,
       "match": true,
-      "dp_time_ms": 0.556,
-      "sweep_time_ms": 1.019,
+      "dp_time_ms": 0.552,
+      "sweep_time_ms": 1.027,
       "grid_sum_checked": false
     },
     {
@@ -1243,8 +1243,8 @@
       "max_bag_size": 2,
       "volume": 600812693,
       "match": true,
-      "dp_time_ms": 0.581,
-      "sweep_time_ms": 0.734,
+      "dp_time_ms": 0.573,
+      "sweep_time_ms": 0.937,
       "grid_sum_checked": false
     },
     {
@@ -1256,8 +1256,8 @@
       "max_bag_size": 3,
       "volume": 3568536856,
       "match": true,
-      "dp_time_ms": 0.838,
-      "sweep_time_ms": 3.797,
+      "dp_time_ms": 1.038,
+      "sweep_time_ms": 3.803,
       "grid_sum_checked": false
     },
     {
@@ -1269,8 +1269,8 @@
       "max_bag_size": 2,
       "volume": 3433450,
       "match": true,
-      "dp_time_ms": 0.379,
-      "sweep_time_ms": 0.065,
+      "dp_time_ms": 0.412,
+      "sweep_time_ms": 0.068,
       "grid_sum_checked": false
     },
     {
@@ -1282,8 +1282,8 @@
       "max_bag_size": 2,
       "volume": 21664225,
       "match": true,
-      "dp_time_ms": 0.676,
-      "sweep_time_ms": 2.688,
+      "dp_time_ms": 0.811,
+      "sweep_time_ms": 2.609,
       "grid_sum_checked": false
     },
     {
@@ -1295,8 +1295,8 @@
       "max_bag_size": 3,
       "volume": 147288285,
       "match": true,
-      "dp_time_ms": 0.839,
-      "sweep_time_ms": 3.469,
+      "dp_time_ms": 0.826,
+      "sweep_time_ms": 3.42,
       "grid_sum_checked": false
     },
     {
@@ -1308,8 +1308,8 @@
       "max_bag_size": 3,
       "volume": 1677969879,
       "match": true,
-      "dp_time_ms": 0.879,
-      "sweep_time_ms": 8.39,
+      "dp_time_ms": 0.87,
+      "sweep_time_ms": 8.362,
       "grid_sum_checked": true
     }
   ]

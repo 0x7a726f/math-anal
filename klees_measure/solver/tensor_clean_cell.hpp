@@ -2117,6 +2117,321 @@ inline Int128 evaluate_tensor_hypergraph_d5(
 }
 
 
+/**
+ * Exact d=6 Mixed (2,3)-Slab Hypergraph Tensor Network Contraction:
+ * Complete hypergraph interaction network:
+ * - 15 pairwise 2-slab edges: {u, v} for 0 <= u < v < 6
+ * - 20 tripartite 3-slab hyperedges: {u, v, w} for 0 <= u < v < w < 6
+ * Evaluated with AVX2 SIMD bitmask on coordinate 5.
+ */
+inline Int128 evaluate_tensor_hypergraph_d6(
+    const Box& cell,
+    const std::vector<Box>& boxes
+) {
+    const int d = 6;
+    std::vector<std::pair<int64_t, int64_t>> slabs_1[6];
+    std::vector<Slab2> slabs_2[6][6];
+    std::vector<Slab3> slabs_3[6][6][6];
+
+    for (const auto& b : boxes) {
+        if (!b.is_valid()) continue;
+        std::vector<int> noncov;
+        bool disjoint = false;
+        for (int i = 0; i < d; ++i) {
+            int64_t l = std::max(cell.low[i], b.low[i]);
+            int64_t h = std::min(cell.high[i], b.high[i]);
+            if (l >= h) { disjoint = true; break; }
+            if (b.low[i] > cell.low[i] || b.high[i] < cell.high[i]) noncov.push_back(i);
+        }
+        if (disjoint) continue;
+
+        if (noncov.empty()) {
+            return cell.volume();
+        } else if (noncov.size() == 1) {
+            int dim = noncov[0];
+            slabs_1[dim].push_back({std::max(cell.low[dim], b.low[dim]), std::min(cell.high[dim], b.high[dim])});
+        } else if (noncov.size() == 2) {
+            int u = noncov[0], v = noncov[1];
+            if (u > v) std::swap(u, v);
+            int64_t l_u = std::max(cell.low[u], b.low[u]);
+            int64_t h_u = std::min(cell.high[u], b.high[u]);
+            int64_t l_v = std::max(cell.low[v], b.low[v]);
+            int64_t h_v = std::min(cell.high[v], b.high[v]);
+            slabs_2[u][v].push_back({u, v, l_u, h_u, l_v, h_v});
+        } else if (noncov.size() == 3) {
+            int u = noncov[0], v = noncov[1], w = noncov[2];
+            if (u > v) std::swap(u, v);
+            if (v > w) std::swap(v, w);
+            if (u > v) std::swap(u, v);
+            int64_t l_u = std::max(cell.low[u], b.low[u]);
+            int64_t h_u = std::min(cell.high[u], b.high[u]);
+            int64_t l_v = std::max(cell.low[v], b.low[v]);
+            int64_t h_v = std::min(cell.high[v], b.high[v]);
+            int64_t l_w = std::max(cell.low[w], b.low[w]);
+            int64_t h_w = std::min(cell.high[w], b.high[w]);
+            slabs_3[u][v][w].push_back({u, v, w, l_u, h_u, l_v, h_v, l_w, h_w});
+        } else {
+            return exact_kmp_sweep(boxes, d);
+        }
+    }
+
+    std::vector<std::pair<int64_t, int64_t>> elementary[6];
+    for (int i = 0; i < d; ++i) {
+        std::vector<int64_t> coords;
+        coords.push_back(cell.low[i]);
+        coords.push_back(cell.high[i]);
+        for (const auto& s : slabs_1[i]) {
+            coords.push_back(s.first);
+            coords.push_back(s.second);
+        }
+        for (int u = 0; u < d; ++u) {
+            for (int v = u + 1; v < d; ++v) {
+                for (const auto& s : slabs_2[u][v]) {
+                    if (i == u) { coords.push_back(s.a1); coords.push_back(s.b1); }
+                    else if (i == v) { coords.push_back(s.a2); coords.push_back(s.b2); }
+                }
+            }
+        }
+        for (int u = 0; u < d; ++u) {
+            for (int v = u + 1; v < d; ++v) {
+                for (int w = v + 1; w < d; ++w) {
+                    for (const auto& s : slabs_3[u][v][w]) {
+                        if (i == u) { coords.push_back(s.a1); coords.push_back(s.b1); }
+                        else if (i == v) { coords.push_back(s.a2); coords.push_back(s.b2); }
+                        else if (i == w) { coords.push_back(s.a3); coords.push_back(s.b3); }
+                    }
+                }
+            }
+        }
+        std::sort(coords.begin(), coords.end());
+        coords.erase(std::unique(coords.begin(), coords.end()), coords.end());
+        for (size_t r = 0; r + 1 < coords.size(); ++r) {
+            if (coords[r + 1] > coords[r]) {
+                elementary[i].push_back({coords[r], coords[r + 1]});
+            }
+        }
+    }
+
+    size_t V[6];
+    for (int i = 0; i < d; ++i) {
+        V[i] = elementary[i].size();
+        if (V[i] == 0) return cell.volume();
+    }
+
+    std::vector<int64_t> D[6];
+    for (int i = 0; i < d; ++i) {
+        D[i].resize(V[i], 0);
+        for (size_t r = 0; r < V[i]; ++r) {
+            int64_t l = elementary[i][r].first, h = elementary[i][r].second;
+            bool cov = false;
+            for (const auto& s : slabs_1[i]) {
+                if (s.first <= l && s.second >= h) { cov = true; break; }
+            }
+            if (!cov) D[i][r] = h - l;
+        }
+    }
+
+    int64_t sum_D[6] = {0, 0, 0, 0, 0, 0};
+    for (int i = 0; i < d; ++i) {
+        for (size_t r = 0; r < V[i]; ++r) sum_D[i] += D[i][r];
+        if (sum_D[i] == 0) return cell.volume();
+    }
+
+    bool has_higher_slabs = false;
+    for (int u = 0; u < d; ++u) {
+        for (int v = u + 1; v < d; ++v) {
+            if (!slabs_2[u][v].empty()) has_higher_slabs = true;
+            for (int w = v + 1; w < d; ++w) {
+                if (!slabs_3[u][v][w].empty()) has_higher_slabs = true;
+            }
+        }
+    }
+    if (!has_higher_slabs) {
+        Int128 comp_vol = Int128(sum_D[0]) * sum_D[1];
+        comp_vol = comp_vol * sum_D[2];
+        comp_vol = comp_vol * sum_D[3];
+        comp_vol = comp_vol * sum_D[4];
+        comp_vol = comp_vol * sum_D[5];
+        return cell.volume() - comp_vol;
+    }
+
+    // Build SIMD Bitmask for coordinate 5
+    SimdBitmask U5(V[5], false);
+    for (size_t r5 = 0; r5 < V[5]; ++r5) {
+        if (D[5][r5] > 0) U5.set(r5);
+    }
+
+    std::vector<SimdBitmask> A_to_5[5];
+    for (int u = 0; u < 5; ++u) {
+        A_to_5[u].assign(V[u], SimdBitmask(V[5], true));
+        for (size_t ru = 0; ru < V[u]; ++ru) {
+            int64_t lu = elementary[u][ru].first, hu = elementary[u][ru].second;
+            for (size_t r5 = 0; r5 < V[5]; ++r5) {
+                int64_t l5 = elementary[5][r5].first, h5 = elementary[5][r5].second;
+                for (const auto& s : slabs_2[u][5]) {
+                    if (s.a1 <= lu && s.b1 >= hu && s.a2 <= l5 && s.b2 >= h5) {
+                        A_to_5[u][ru].reset(r5);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    std::vector<SimdBitmask> H_to_5[5][5];
+    for (int u = 0; u < 5; ++u) {
+        for (int v = u + 1; v < 5; ++v) {
+            H_to_5[u][v].assign(V[u] * V[v], SimdBitmask(V[5], true));
+            for (size_t ru = 0; ru < V[u]; ++ru) {
+                int64_t lu = elementary[u][ru].first, hu = elementary[u][ru].second;
+                for (size_t rv = 0; rv < V[v]; ++rv) {
+                    int64_t lv = elementary[v][rv].first, hv = elementary[v][rv].second;
+                    for (size_t r5 = 0; r5 < V[5]; ++r5) {
+                        int64_t l5 = elementary[5][r5].first, h5 = elementary[5][r5].second;
+                        for (const auto& s : slabs_3[u][v][5]) {
+                            if (s.a1 <= lu && s.b1 >= hu && s.a2 <= lv && s.b2 >= hv && s.a3 <= l5 && s.b3 >= h5) {
+                                H_to_5[u][v][ru * V[v] + rv].reset(r5);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    std::vector<uint8_t> A_table[5][5];
+    for (int u = 0; u < 5; ++u) {
+        for (int v = u + 1; v < 5; ++v) {
+            A_table[u][v].assign(V[u] * V[v], 1);
+            for (size_t ru = 0; ru < V[u]; ++ru) {
+                int64_t lu = elementary[u][ru].first, hu = elementary[u][ru].second;
+                for (size_t rv = 0; rv < V[v]; ++rv) {
+                    int64_t lv = elementary[v][rv].first, hv = elementary[v][rv].second;
+                    for (const auto& s : slabs_2[u][v]) {
+                        if (s.a1 <= lu && s.b1 >= hu && s.a2 <= lv && s.b2 >= hv) {
+                            A_table[u][v][ru * V[v] + rv] = 0;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    std::vector<uint8_t> H_table[5][5][5];
+    for (int u = 0; u < 5; ++u) {
+        for (int v = u + 1; v < 5; ++v) {
+            for (int w = v + 1; w < 5; ++w) {
+                H_table[u][v][w].assign(V[u] * V[v] * V[w], 1);
+                for (size_t ru = 0; ru < V[u]; ++ru) {
+                    int64_t lu = elementary[u][ru].first, hu = elementary[u][ru].second;
+                    for (size_t rv = 0; rv < V[v]; ++rv) {
+                        int64_t lv = elementary[v][rv].first, hv = elementary[v][rv].second;
+                        for (size_t rw = 0; rw < V[w]; ++rw) {
+                            int64_t lw = elementary[w][rw].first, hw = elementary[w][rw].second;
+                            for (const auto& s : slabs_3[u][v][w]) {
+                                if (s.a1 <= lu && s.b1 >= hu && s.a2 <= lv && s.b2 >= hv && s.a3 <= lw && s.b3 >= hw) {
+                                    H_table[u][v][w][ru * V[v] * V[w] + rv * V[w] + rw] = 0;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    Int128 complement_vol(0);
+
+    for (size_t r0 = 0; r0 < V[0]; ++r0) {
+        int64_t w0 = D[0][r0];
+        if (w0 == 0) continue;
+        SimdBitmask mask_05 = bitwise_and(U5, A_to_5[0][r0]);
+        if (mask_05.is_zero()) continue;
+
+        for (size_t r1 = 0; r1 < V[1]; ++r1) {
+            int64_t w1 = D[1][r1];
+            if (w1 == 0 || !A_table[0][1][r0 * V[1] + r1]) continue;
+
+            SimdBitmask mask_015 = bitwise_and(mask_05, A_to_5[1][r1]);
+            mask_015 = bitwise_and(mask_015, H_to_5[0][1][r0 * V[1] + r1]);
+            if (mask_015.is_zero()) continue;
+
+            Int128 w01 = Int128(w0) * w1;
+
+            for (size_t r2 = 0; r2 < V[2]; ++r2) {
+                int64_t w2 = D[2][r2];
+                if (w2 == 0 || !A_table[0][2][r0 * V[2] + r2] || !A_table[1][2][r1 * V[2] + r2]) continue;
+                if (!H_table[0][1][2][r0 * V[1] * V[2] + r1 * V[2] + r2]) continue;
+
+                SimdBitmask mask_0125 = bitwise_and(mask_015, A_to_5[2][r2]);
+                mask_0125 = bitwise_and(mask_0125, H_to_5[0][2][r0 * V[2] + r2]);
+                mask_0125 = bitwise_and(mask_0125, H_to_5[1][2][r1 * V[2] + r2]);
+                if (mask_0125.is_zero()) continue;
+
+                Int128 w012 = w01 * w2;
+
+                for (size_t r3 = 0; r3 < V[3]; ++r3) {
+                    int64_t w3 = D[3][r3];
+                    if (w3 == 0 || !A_table[0][3][r0 * V[3] + r3] || !A_table[1][3][r1 * V[3] + r3] || !A_table[2][3][r2 * V[3] + r3]) continue;
+                    if (!H_table[0][1][3][r0 * V[1] * V[3] + r1 * V[3] + r3] ||
+                        !H_table[0][2][3][r0 * V[2] * V[3] + r2 * V[3] + r3] ||
+                        !H_table[1][2][3][r1 * V[2] * V[3] + r2 * V[3] + r3]) continue;
+
+                    SimdBitmask mask_01235 = bitwise_and(mask_0125, A_to_5[3][r3]);
+                    mask_01235 = bitwise_and(mask_01235, H_to_5[0][3][r0 * V[3] + r3]);
+                    mask_01235 = bitwise_and(mask_01235, H_to_5[1][3][r1 * V[3] + r3]);
+                    mask_01235 = bitwise_and(mask_01235, H_to_5[2][3][r2 * V[3] + r3]);
+                    if (mask_01235.is_zero()) continue;
+
+                    Int128 w0123 = w012 * w3;
+
+                    for (size_t r4 = 0; r4 < V[4]; ++r4) {
+                        int64_t w4 = D[4][r4];
+                        if (w4 == 0 || !A_table[0][4][r0 * V[4] + r4] || !A_table[1][4][r1 * V[4] + r4] ||
+                            !A_table[2][4][r2 * V[4] + r4] || !A_table[3][4][r3 * V[4] + r4]) continue;
+                        if (!H_table[0][1][4][r0 * V[1] * V[4] + r1 * V[4] + r4] ||
+                            !H_table[0][2][4][r0 * V[2] * V[4] + r2 * V[4] + r4] ||
+                            !H_table[0][3][4][r0 * V[3] * V[4] + r3 * V[4] + r4] ||
+                            !H_table[1][2][4][r1 * V[2] * V[4] + r2 * V[4] + r4] ||
+                            !H_table[1][3][4][r1 * V[3] * V[4] + r3 * V[4] + r4] ||
+                            !H_table[2][3][4][r2 * V[3] * V[4] + r3 * V[4] + r4]) continue;
+
+                        SimdBitmask mask_final = bitwise_and(mask_01235, A_to_5[4][r4]);
+                        mask_final = bitwise_and(mask_final, H_to_5[0][4][r0 * V[4] + r4]);
+                        mask_final = bitwise_and(mask_final, H_to_5[1][4][r1 * V[4] + r4]);
+                        mask_final = bitwise_and(mask_final, H_to_5[2][4][r2 * V[4] + r4]);
+                        mask_final = bitwise_and(mask_final, H_to_5[3][4][r3 * V[4] + r4]);
+                        if (mask_final.is_zero()) continue;
+
+                        Int128 w01234 = w0123 * w4;
+
+                        int64_t sum_5 = 0;
+                        for (size_t w_idx = 0; w_idx < mask_final.words.size(); ++w_idx) {
+                            uint64_t word = mask_final.words[w_idx];
+                            while (word) {
+                                int bit = count_trailing_zeros_u64(word);
+                                size_t r5 = w_idx * 64 + bit;
+                                if (r5 < V[5]) sum_5 += D[5][r5];
+                                word = reset_lowest_set_bit_u64(word);
+                            }
+                        }
+                        if (sum_5 > 0) {
+                            complement_vol += w01234 * sum_5;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    Int128 total_vol = cell.volume();
+    return total_vol - complement_vol;
+}
+
+
 inline Int128 evaluate_tensor_clean_cell(
     const Box& cell,
     const std::vector<Box>& boxes
@@ -2137,6 +2452,8 @@ inline Int128 evaluate_tensor_clean_cell(
         if (is_hypergraph_clean_cell(cell, boxes)) return evaluate_tensor_hypergraph_d5(cell, boxes);
         return evaluate_tensor_clean_cell_d5(cell, boxes);
     } else if (d == 6) {
+        if (is_clean_cell(cell, boxes)) return evaluate_tensor_clean_cell_d6(cell, boxes);
+        if (is_hypergraph_clean_cell(cell, boxes)) return evaluate_tensor_hypergraph_d6(cell, boxes);
         return evaluate_tensor_clean_cell_d6(cell, boxes);
     } else if (d == 7) {
         return evaluate_tensor_clean_cell_d7(cell, boxes);

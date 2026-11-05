@@ -38,10 +38,14 @@ struct SplitPolicy {
                     weighted_deg += std::pow(n_ij, 1.5);
                 }
             }
-            if (weighted_deg <= 0.0) continue;
 
+            // Hypergraph Slab Area Heuristic (HSAH):
+            // Prioritize cutting planes that decimate 4-slabs (k >= 4) and 3-slabs (k == 3) into lower-order clean slabs
+            double hsah_bonus = 0.0;
             int spanning_count = 0;
             int transverse_spanning = 0;
+            double cell_span = (double)(cell.high[i] - cell.low[i]);
+
             for (const auto& b : boxes) {
                 if (b.low[i] <= cell.low[i] && b.high[i] >= cell.high[i]) {
                     spanning_count++;
@@ -52,13 +56,27 @@ struct SplitPolicy {
                         }
                     }
                     if (other_noncov >= 2) transverse_spanning++;
+                } else {
+                    int k = 0;
+                    for (int j = 0; j < d; ++j) {
+                        if (b.low[j] > cell.low[j] || b.high[j] < cell.high[j]) k++;
+                    }
+                    double b_span = (double)(std::min(cell.high[i], b.high[i]) - std::max(cell.low[i], b.low[i]));
+                    double rel_span = (cell_span > 0.0) ? (b_span / cell_span) : 1.0;
+                    if (k >= 4) {
+                        hsah_bonus += 16.0 * rel_span; // High priority: decimate >=4-slabs into hypergraph-clean 3-slabs
+                    } else if (k == 3) {
+                        hsah_bonus += 5.0 * rel_span;  // Decimate 3-slabs into clean 2-slabs
+                    }
                 }
             }
+
+            if (weighted_deg <= 0.0 && hsah_bonus <= 0.0) continue;
 
             double denom = (1.0 + (double)spanning_count);
             double trans_penalty = (1.0 + 0.15 * (double)transverse_spanning);
             double art_factor = 1.0;
-            double efficiency = (weighted_deg * art_factor) / (denom * denom * trans_penalty);
+            double efficiency = ((weighted_deg + hsah_bonus) * art_factor) / (denom * denom * trans_penalty);
             if (efficiency > max_efficiency) {
                 max_efficiency = efficiency;
                 best_dim = i;
@@ -193,7 +211,7 @@ struct SplitPolicy {
         if ((int)boxes.size() <= threshold) return true;
         if (active_d2_faces <= leaf_d2_face_threshold) return true;
         if (is_clean_cell(cell, boxes)) return true;
-        if ((d == 4 || d == 5) && is_hypergraph_clean_cell(cell, boxes)) return true;
+        if ((d == 4 || d == 5 || d == 6) && is_hypergraph_clean_cell(cell, boxes)) return true;
         return false;
     }
 
@@ -213,6 +231,9 @@ struct SplitPolicy {
         }
         if (d == 5 && is_hypergraph_clean_cell(cell, boxes)) {
             return evaluate_tensor_hypergraph_d5(cell, boxes);
+        }
+        if (d == 6 && is_hypergraph_clean_cell(cell, boxes)) {
+            return evaluate_tensor_hypergraph_d6(cell, boxes);
         }
         return exact_kmp_sweep(boxes, d);
     }

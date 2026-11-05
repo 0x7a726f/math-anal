@@ -200,7 +200,7 @@ struct ChampionPolicy {
         if ((int)boxes.size() <= threshold) return true;
         if (active_d2_faces == 0) return true;
         if (is_clean_cell(cell, boxes)) return true;
-        if ((d == 4 || d == 5) && is_hypergraph_clean_cell(cell, boxes)) return true;
+        if ((d == 4 || d == 5 || d == 6) && is_hypergraph_clean_cell(cell, boxes)) return true;
         return false;
     }
 
@@ -219,6 +219,9 @@ struct ChampionPolicy {
         }
         if (d == 5 && is_hypergraph_clean_cell(cell, boxes)) {
             return evaluate_tensor_hypergraph_d5(cell, boxes);
+        }
+        if (d == 6 && is_hypergraph_clean_cell(cell, boxes)) {
+            return evaluate_tensor_hypergraph_d6(cell, boxes);
         }
         return exact_kmp_sweep(boxes, d);
     }
