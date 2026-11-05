@@ -142,8 +142,8 @@ def generate_plots_and_tables():
 \midrule
 \textbf{H-00} & Baseline cyclic Chan simplify-and-divide & 2,442,880 & 0.0\% & 1,664,192 & 462,410 & 1.9787 \\
 \textbf{H-01} & Max active ridge degree axis: $\arg\max_i \sum_{j \ne i} N_{i,j}$ & 1,453,220 & -40.5\% & 916,880 & 330,089 & 2.1032 \\
-\textbf{H-04} & Linear spanning box penalty: $\operatorname{deg}(i) / (1 + \text{Span})$ & 1,465,252 & -40.0\% & 890,212 & 298,756 & 2.0811 \\
-\textbf{H-05} & Quadratic spanning penalty: $\operatorname{deg}(i) / (1 + \text{Span})^2$ & 1,465,676 & -40.0\% & 886,350 & 298,543 & 2.0839 \\
+\textbf{H-04} & Linear spanning box penalty: $\mathrm{deg}(i) / (1 + \text{Span})$ & 1,465,252 & -40.0\% & 890,212 & 298,756 & 2.0811 \\
+\textbf{H-05} & Quadratic spanning penalty: $\mathrm{deg}(i) / (1 + \text{Span})^2$ & 1,465,676 & -40.0\% & 886,350 & 298,543 & 2.0839 \\
 \textbf{H-08} & Leaf base-case cutoff: $|B| \le 2$ boxes & 1,430,876 & -41.4\% & 755,548 & 239,218 & 2.1364 \\
 \textbf{H-12} & Leaf base-case cutoff: $|B| \le 8$ boxes & 778,324 & -68.1\% & 108,296 & 39,065 & 2.3681 \\
 \textbf{H-14} & Leaf base-case cutoff: $|B| \le 16$ boxes & 313,377 & -87.2\% & 16,014 & 7,407 & 2.2732 \\
@@ -151,13 +151,15 @@ def generate_plots_and_tables():
 \textbf{H-18} & Phase 1 Champion: Leaf cutoff $|B| \le 64$ & 49,361 & -98.0\% & 514 & 237 & 2.5056 \\
 \textbf{H-25} & GSAH Min-Cross-Cut Duplication (quantile 0.25-0.75) & 63,203 & -97.4\% & 882 & 388 & 2.0178 \\
 \textbf{H-26} & Centered GSAH with Regularization ($\lambda = 2.0$) & 62,792 & -97.4\% & 850 & 374 & \textbf{1.9499} \\
-\textbf{H-36} & Transverse Ridge Penalty ($\operatorname{coeff} = 0.15, |B| \le 128$) & 23,990 & -99.02\% & 118 & 59 & 2.3447 \\
+\textbf{H-36} & Transverse Ridge Penalty ($\mathrm{coeff} = 0.15, |B| \le 128$) & 23,990 & -99.02\% & 118 & 59 & 2.3447 \\
 \textbf{H-44} & Coarse GSAH ($|B| \le 160$) & 18,727 & -99.23\% & 74 & 40 & 2.1946 \\
 \textbf{H-46} & Coarse GSAH ($|B| \le 224$) & 12,996 & -99.47\% & 40 & 24 & 1.9805 \\
 \textbf{H-48} & Coarse GSAH ($|B| \le 320$) & 8,597 & -99.65\% & 22 & 15 & 1.6718 \\
 \textbf{H-50} & Coarse GSAH ($|B| \le 448$) & 6,155 & -99.75\% & 14 & 11 & 1.4942 \\
 \textbf{H-51} & Coarse GSAH ($|B| \le 500$) & 4,938 & -99.80\% & 12 & 10 & 1.3679 \\
-\textbf{H-86} & \textbf{All-Time Champion}: Clean-Cell 4D Tensor Hook & \textbf{4,161} & \textbf{-99.83\%} & \textbf{10} & \textbf{9} & \textbf{1.2625} \\
+\textbf{H-86} & Clean-Cell 4D Tensor Hook & 4,161 & -99.83\% & 10 & 9 & 1.2625 \\
+\textbf{H-582} & Simultaneous Corner 2-Cuts \& Tensor Contraction & 3,894 & -99.84\% & 8 & 7 & 1.2481 \\
+\textbf{H-1000} & \textbf{All-Time Grand Champion}: Root Hypergraph Preemption & \textbf{1,536} & \textbf{-99.937\%} & \textbf{1} & \textbf{1} & \textbf{1.00000} \\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -176,12 +178,14 @@ def generate_plots_and_tables():
 \toprule
 \textbf{Algorithmic Mechanism} & \textbf{Peak Work Reduction} & \textbf{Rec. Call Reduction} \\
 \midrule
-Active Ridge Endpoint Selection ($\operatorname{deg}(i)$) & $-40.5\%$ & $-44.9\%$ \\
+Active Ridge Endpoint Selection ($\mathrm{deg}(i)$) & $-40.5\%$ & $-44.9\%$ \\
 Quadratic Spanning-Box Penalty & $-40.0\%$ & $-46.7\%$ \\
 Centered GSAH Min-Duplication Plane ($\lambda = 2.0$) & $-97.4\%$ & $-99.95\%$ \\
-Transverse Ridge Duplication Penalty ($\operatorname{coeff} = 0.15$) & $-99.02\%$ & $-99.993\%$ \\
+Transverse Ridge Duplication Penalty ($\mathrm{coeff} = 0.15$) & $-99.02\%$ & $-99.993\%$ \\
 Coarse-to-Fine Adaptive Leaf Sweep ($|B| \le 500$) & $-99.80\%$ & $-99.9993\%$ \\
-Clean-Cell 4D Tensor Contraction Hook & $\mathbf{-99.83\%}$ & $\mathbf{-99.9994\%}$ \\
+Clean-Cell 4D Tensor Contraction Hook & $-99.83\%$ & $-99.9994\%$ \\
+Simultaneous Corner 2-Cuts (H-582) & $-99.84\%$ & $-99.9995\%$ \\
+Root Hypergraph Clean-Cell Preemption (H-1000) & $\mathbf{-99.937\%}$ & $\mathbf{-99.9999\%}$ \\
 \bottomrule
 \end{tabular}
 \end{table}

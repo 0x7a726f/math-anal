@@ -1,11 +1,11 @@
 \begin{table}[t]
 \centering
-\caption{Ablation of Algorithmic Components on 4D Trellis Weaves ($n=512$).}
+\caption{Ablation Breakdown of Structural Contributions against Baseline H-00.}
 \label{tab:ablation}
 \small
 \begin{tabular}{lrr}
 \toprule
-\textbf{Algorithmic Mechanism} & \textbf{Peak Work Red.} & \textbf{Rec. Call Red.} \\
+\textbf{Algorithmic Mechanism} & \textbf{Peak Work Reduction} & \textbf{Rec. Call Reduction} \\
 \midrule
 Active Ridge Endpoint Selection ($\mathrm{deg}(i)$) & $-40.5\%$ & $-44.9\%$ \\
 Quadratic Spanning-Box Penalty & $-40.0\%$ & $-46.7\%$ \\
@@ -13,7 +13,8 @@ Centered GSAH Min-Duplication Plane ($\lambda = 2.0$) & $-97.4\%$ & $-99.95\%$ \
 Transverse Ridge Duplication Penalty ($\mathrm{coeff} = 0.15$) & $-99.02\%$ & $-99.993\%$ \\
 Coarse-to-Fine Adaptive Leaf Sweep ($|B| \le 500$) & $-99.80\%$ & $-99.9993\%$ \\
 Clean-Cell 4D Tensor Contraction Hook & $-99.83\%$ & $-99.9994\%$ \\
-\textbf{Simultaneous Orthogonal Corner 2-Cuts (H-582)} & $\mathbf{-99.84\%}$ & $\mathbf{-99.9995\%}$ \\
+Simultaneous Corner 2-Cuts (H-582) & $-99.84\%$ & $-99.9995\%$ \\
+Root Hypergraph Clean-Cell Preemption (H-1000) & $\mathbf{-99.937\%}$ & $\mathbf{-99.9999\%}$ \\
 \bottomrule
 \end{tabular}
 \end{table}

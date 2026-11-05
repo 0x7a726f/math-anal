@@ -131,7 +131,7 @@ struct SplitPolicy {
         return best_c;
     }
 
-    bool use_corner_2cuts = false;
+    bool use_corner_2cuts = true;
     uint64_t corner_2cut_face_threshold = 3000;
 
     Corner2Cut select_corner_2cut(
