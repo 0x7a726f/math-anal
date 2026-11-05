@@ -144,8 +144,8 @@ struct SplitPolicy {
         else if (d == 4) threshold = std::min(threshold, 500);
         if ((int)boxes.size() <= threshold) return true;
         if (active_d2_faces <= leaf_d2_face_threshold) return true;
-        if (d <= 4 && is_clean_cell(cell, boxes)) return true;
-        if (d <= 6 && (int)boxes.size() <= 16 && is_clean_cell(cell, boxes)) return true;
+        if (d <= 7 && is_clean_cell(cell, boxes)) return true;
+        if (is_clean_cell(cell, boxes)) return true;
         return false;
     }
 
@@ -157,7 +157,7 @@ struct SplitPolicy {
         if (boxes.empty()) return Int128(0);
         if (boxes.size() == 1) return boxes[0].volume();
 
-        if (d <= 6 && is_clean_cell(cell, boxes)) {
+        if (is_clean_cell(cell, boxes)) {
             return evaluate_tensor_clean_cell(cell, boxes);
         }
         return exact_kmp_sweep(boxes, d);
