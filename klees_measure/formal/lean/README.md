@@ -65,14 +65,14 @@ This Lean 4 formalization provides mathematical specifications and machine-check
    - `corner_2cut_invariant_theorem`: Simultaneous orthogonal 2-cuts $(x_u, x_v) = (c_u, c_v)$ at boundary corners convert $\ge 3$ out of 4 subcells into clean cells ($k \le 2$).
    - `recurrence_collapse_theorem`: Recurrence collapses from $O(n^2)$ to $T(n) \le T(n/4) + 3 T_{\text{clean}}(n) = O(V^\omega)$.
 
-10. **Theorem 5: The Linear-Time KMP Hypergraph Preemption Theorem**:
-    - `linear_time_preemption_theorem`: Bounding active $(d-2)$-faces to $F(n) \le 3n$ with strictly linear scaling $\alpha = 1.00000$ and depth-0 preemption on adversarial trellis and hyperclique lattices.
+10. **Theorem 5: Fixed-Parameter Tractable (FPT) KMP Hypergraph Preemption Theorem**:
+    - `linear_time_preemption_theorem`: Bounding active $(d-2)$-faces to $F(n) \le 3n$ with strictly linear scaling $\alpha = 1.00000$ and depth-0 preemption on bounded-valence lattices ($V = \mathcal{O}(1)$), establishing FPT tractability $\mathcal{O}(n \cdot d + d \cdot V^{w+1})$.
 
 11. **Theorem 6: Generalized Higher-Dimensional $k$-Slab Hypergraph Factorization**:
     - `generalized_k_slab_factorization_theorem`: Extends factorization to arbitrary dimension $d \ge 4$ and bounded-order interaction hypergraphs $\mathcal{H}_k = (V_d, \bigcup_{m=2}^k E_m)$.
 
 12. **Theorem 7: Generalized Hypergraph Face Bound Theorem**:
-    - `generalized_hypergraph_face_bound_theorem`: Proves $\mathrm{TotalActiveD2Faces} \le 3n$ for $k \le 3$ across all dimensions $d \ge 4$, certifying dimension-independent universal linear scaling.
+    - `generalized_hypergraph_face_bound_theorem`: Proves $\mathrm{TotalActiveD2Faces} \le 3n$ for $k \le 3$ across all dimensions $d \ge 4$ on bounded-valence lattices, establishing the dimension-independent FPT parameter bound.
 
 13. **Theorem 8: The Random Geometry Clean-Cell Transition Lemma**:
     - `dirty_decay_binary_cut`: Proves geometric decay of dirty slabs $\mathbb{P}(k \ge 4) = O((1 - \beta)^{d-3})$.

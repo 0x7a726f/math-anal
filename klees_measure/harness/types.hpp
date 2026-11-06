@@ -169,6 +169,7 @@ struct Corner2Cut {
 struct StructuralCounters {
     Int128 exact_volume = Int128(0);
     uint64_t total_d2_faces_processed = 0;
+    uint64_t total_tensor_arithmetic_ops = 0;
     uint64_t recursive_calls = 0;
     uint64_t trellis_leaves = 0;
     uint64_t simplify_steps = 0;
@@ -177,6 +178,7 @@ struct StructuralCounters {
     void reset() {
         exact_volume = Int128(0);
         total_d2_faces_processed = 0;
+        total_tensor_arithmetic_ops = 0;
         recursive_calls = 0;
         trellis_leaves = 0;
         simplify_steps = 0;

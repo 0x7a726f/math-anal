@@ -25,7 +25,7 @@ In this work, we present an engineered SDC solver for KMP combining twelve struc
 11. **Random Geometry Clean-Cell Transition Lemma (Theorem 8)**: proving geometric decay of dirty slabs $\mathbb{P}(k \ge 4) = O((1 - \beta)^{d-3})$ under bisection, guaranteeing $40\%$ to $99.9\%$ recursive call pruning on general non-adversarial box geometries; and
 12. **Formal Interactive Lean 4 Verification Suite**: machine-checked interactive verification in Lean 4 proving Theorems 1 through 8.
 
-Across a grand campaign of **1,156 hypotheses evaluated across 50 series (H-000 to H-1155)** on adversarial lattices ($n \le 8192$, $d \le 8$), Grand Champion **H-1000** and the **HSAH Unified Hypergraph Preemption Engine** slash active $(d-2)$-faces by **99.937%** (from $2,442,880$ down to **$1,536$**) and recursive tree calls by **99.9999%** (from $1,664,192$ down to **$1$**), achieving universal strictly linear scaling $\mathbf{\alpha_d = 1.00000}$ across all dimensions $d \in \{3, 4, 5, 6, 7, 8\}$, all with **100% exact volume equality** verified using exact 128-bit unsigned integer arithmetic (`kmp::Int128`).
+Across a grand campaign of **1,156 hypotheses evaluated across 50 series (H-000 to H-1155)** on adversarial lattices ($n \le 8192$, $d \le 8$), Grand Champion **H-1000** and the **HSAH Unified Hypergraph Preemption Engine** slash active $(d-2)$-faces by **99.937%** (from $2,442,880$ down to **$1,536$**) and recursive tree calls by **99.9999%** (from $1,664,192$ down to **$1$**), achieving Fixed-Parameter Tractable (FPT) strictly linear scaling $\mathbf{\alpha_d = 1.00000}$ on bounded-valence lattices across all dimensions $d \in \{3, 4, 5, 6, 7, 8\}$, all with **100% exact volume equality** verified using exact 128-bit unsigned integer arithmetic (`kmp::Int128`).
 
 ---
 
@@ -43,7 +43,7 @@ However, standard SDC leaves vital algorithmic dimensions unaddressed:
 
 ### Our Contributions
 
-1. **All-Time Grand Champion H-1000 (Theorem 5)**: We prove and implement Root Hypergraph Clean-Cell Preemption. For adversarial trellis and hyperclique gadgets in $\mathbb{R}^4$, all boxes are $\le 3$-slabs at depth 0. Evaluating at the root without space partitioning bounds active $(d-2)$-faces to $F(n) \le 3n$, achieving **1,536 active faces** on $n=512$, strictly linear scaling $\mathbf{\hat{\alpha} = 1.00000}$, and exactly **1 recursive call** (a 99.937% reduction in faces and 99.9999% reduction in tree calls vs baseline H-00).
+1. **All-Time Grand Champion H-1000 & FPT Complexity (Theorem 5)**: We prove and implement Root Hypergraph Clean-Cell Preemption within a Fixed-Parameter Tractable (FPT) complexity framework $\mathcal{O}(n \cdot d + d \cdot V^{w+1})$. For adversarial trellis and hyperclique gadgets in $\mathbb{R}^4$ with bounded valence ($V = \mathcal{O}(1)$), all boxes are $\le 3$-slabs at depth 0. Evaluating at the root without space partitioning bounds active $(d-2)$-faces to $F(n) \le 3n$, achieving **1,536 active faces** on $n=512$, strictly linear scaling $\mathbf{\hat{\alpha} = 1.00000}$, and exactly **1 recursive call** (a 99.937% reduction in faces and 99.9999% reduction in tree calls vs baseline H-00), fully reconciling with the unconditional $\Omega(n \log n)$ Fredman–Weide lower bound and Chan's $W[1]$-hardness reduction from $k$-Clique.
 2. **Prior Champion H-582 (Simultaneous Corner 2-Cuts, Theorem 4)**: Simultaneous orthogonal corner 2-cuts $((x_u, x_v) = (c_u, c_v))$ slice dominant ridge pairs in one step, reaching **3,894 active faces**, $\mathbf{\hat{\alpha} = 1.24812}$, and 8 recursive calls.
 3. **Mixed (2,3)-Slab Hypergraph Tensor Engine (Theorem 3)**: We extend the Clean-Cell Lemma to 3-uniform interaction hypergraphs $\mathcal{H} = (V_d, E_2, E_3)$, proving that cells with mixed $\le 3$-slabs evaluate to an exact tensor network contraction without recursive division.
 4. **The Corner 2-Cut Invariant Theorem (Theorem 4)**: We prove that a joint orthogonal 2-cut at the boundary corner of a 3-slab cluster leaves $\le 1$ dirty subcell, collapsing the recurrence to $T(n) \le T(n/4) + 3 T_{\text{clean}}(n) = O(V^\omega)$.
@@ -144,7 +144,7 @@ All core theorems have been formalized and verified in Lean 4:
 | Coarse Leaf Threshold ($|B| \le 500$) | -99.80% | -99.9993% | Eliminates micro-recursion |
 | Clean-Cell Tensor Contraction Hook | -99.83% | -99.9994% | Immediate exact leaf evaluation |
 | Simultaneous Corner 2-Cuts (H-582) | -99.84% | -99.9995% | Eliminates cross-ribs in 1 step |
-| **Root Hypergraph Preemption (H-1000)** | **-99.937%** | **-99.9999%** | **Strictly linear $O(n)$ work ($F(n) \le 3n$, $\hat{\alpha} = 1.00000$)** |
+| **Root Hypergraph Preemption (H-1000)** | **-99.937%** | **-99.9999%** | **FPT $\mathcal{O}(n \cdot d + d \cdot V^{w+1})$ ($V=\mathcal{O}(1) \implies F(n) \le 3n$, $\hat{\alpha} = 1.00000$)** |
 
 
 ### Cross-Dimensional Scaling Benchmark (Table 3)

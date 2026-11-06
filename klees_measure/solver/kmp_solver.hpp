@@ -155,7 +155,7 @@ private:
             if (active_boxes.size() > 1 && (is_clean_cell(cell, active_boxes) || ((d == 4 || d == 5 || d == 6) && is_hypergraph_clean_cell(cell, active_boxes)))) {
                 counters.clean_cell_leaves++;
             }
-            return policy.evaluate_leaf(cell, active_boxes, d);
+            return policy.evaluate_leaf(cell, active_boxes, d, &counters);
         }
 
         // 4. Divide: Query split policy for axis and cut coordinate

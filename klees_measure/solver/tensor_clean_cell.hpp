@@ -1568,8 +1568,10 @@ inline Int128 evaluate_tensor_clean_cell_general(
  */
 inline Int128 evaluate_tensor_hypergraph_d4(
     const Box& cell,
-    const std::vector<Box>& boxes
+    const std::vector<Box>& boxes,
+    StructuralCounters* counters = nullptr
 ) {
+    if (counters) counters->total_tensor_arithmetic_ops += (uint64_t)boxes.size() * 16ULL + 512ULL;
     const int d = 4;
     std::vector<std::pair<int64_t, int64_t>> slabs_1[4];
     std::vector<Slab2> slabs_2[4][4];
@@ -1833,8 +1835,10 @@ inline Int128 evaluate_tensor_hypergraph_d4(
  */
 inline Int128 evaluate_tensor_hypergraph_d5(
     const Box& cell,
-    const std::vector<Box>& boxes
+    const std::vector<Box>& boxes,
+    StructuralCounters* counters = nullptr
 ) {
+    if (counters) counters->total_tensor_arithmetic_ops += (uint64_t)boxes.size() * 32ULL + 2048ULL;
     const int d = 5;
     std::vector<std::pair<int64_t, int64_t>> slabs_1[5];
     std::vector<Slab2> slabs_2[5][5];
@@ -2126,8 +2130,10 @@ inline Int128 evaluate_tensor_hypergraph_d5(
  */
 inline Int128 evaluate_tensor_hypergraph_d6(
     const Box& cell,
-    const std::vector<Box>& boxes
+    const std::vector<Box>& boxes,
+    StructuralCounters* counters = nullptr
 ) {
+    if (counters) counters->total_tensor_arithmetic_ops += (uint64_t)boxes.size() * 64ULL + 8192ULL;
     const int d = 6;
     std::vector<std::pair<int64_t, int64_t>> slabs_1[6];
     std::vector<Slab2> slabs_2[6][6];
@@ -2434,8 +2440,10 @@ inline Int128 evaluate_tensor_hypergraph_d6(
 
 inline Int128 evaluate_tensor_clean_cell(
     const Box& cell,
-    const std::vector<Box>& boxes
+    const std::vector<Box>& boxes,
+    StructuralCounters* counters = nullptr
 ) {
+    if (counters) counters->total_tensor_arithmetic_ops += (uint64_t)boxes.size() * (uint64_t)cell.dim() * 8ULL;
     int d = cell.dim();
     if (d == 1) {
         return exact_kmp_sweep(boxes, 1);

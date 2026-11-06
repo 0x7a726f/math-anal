@@ -69,11 +69,12 @@ struct BaselinePolicy {
     Int128 evaluate_leaf(
         const Box& cell,
         const std::vector<Box>& boxes,
-        int d
+        int d,
+        StructuralCounters* counters = nullptr
     ) const {
         if (boxes.empty()) return Int128(0);
         if (boxes.size() == 1) return boxes[0].volume();
-        return exact_kmp_sweep(boxes, d);
+        return exact_kmp_sweep(boxes, d, counters);
     }
 };
 

@@ -92,6 +92,12 @@ def main():
     if not ok:
         sys.exit(1)
 
+    # Step 4e: Lean 4 Formal Verification & Axiom Audit
+    lean_cmd = f'"{sys.executable}" scripts/verify_lean.py'
+    ok, out, err = run_step("Step 4e: Lean 4 Formal Verification ('lake build' & 19 Axiom Audits)", lean_cmd)
+    if not ok:
+        sys.exit(1)
+
     # Step 5: Strict Macro Audit (Zero Disallowed Macros)
     target_macro = chr(92) + "operatorname"
     found = []

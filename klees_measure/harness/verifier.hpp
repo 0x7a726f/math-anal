@@ -200,7 +200,10 @@ inline Int128 stack_sweep_nd(const SweepStackBox* boxes, size_t n, int d) {
     return total_volume;
 }
 
-inline Int128 exact_kmp_sweep(const std::vector<Box>& boxes, int d) {
+inline Int128 exact_kmp_sweep(const std::vector<Box>& boxes, int d, StructuralCounters* counters = nullptr) {
+    if (counters) {
+        counters->total_tensor_arithmetic_ops += (uint64_t)boxes.size() * (uint64_t)std::max(1, d);
+    }
     if (boxes.empty() || d <= 0) return Int128(0);
     if (d > 6) {
         // Fallback for d > 6

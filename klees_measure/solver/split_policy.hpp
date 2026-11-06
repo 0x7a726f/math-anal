@@ -218,24 +218,25 @@ struct SplitPolicy {
     Int128 evaluate_leaf(
         const Box& cell,
         const std::vector<Box>& boxes,
-        int d
+        int d,
+        StructuralCounters* counters = nullptr
     ) const {
         if (boxes.empty()) return Int128(0);
         if (boxes.size() == 1) return boxes[0].volume();
 
         if (is_clean_cell(cell, boxes)) {
-            return evaluate_tensor_clean_cell(cell, boxes);
+            return evaluate_tensor_clean_cell(cell, boxes, counters);
         }
         if (d == 4 && is_hypergraph_clean_cell(cell, boxes)) {
-            return evaluate_tensor_hypergraph_d4(cell, boxes);
+            return evaluate_tensor_hypergraph_d4(cell, boxes, counters);
         }
         if (d == 5 && is_hypergraph_clean_cell(cell, boxes)) {
-            return evaluate_tensor_hypergraph_d5(cell, boxes);
+            return evaluate_tensor_hypergraph_d5(cell, boxes, counters);
         }
         if (d == 6 && is_hypergraph_clean_cell(cell, boxes)) {
-            return evaluate_tensor_hypergraph_d6(cell, boxes);
+            return evaluate_tensor_hypergraph_d6(cell, boxes, counters);
         }
-        return exact_kmp_sweep(boxes, d);
+        return exact_kmp_sweep(boxes, d, counters);
     }
 };
 

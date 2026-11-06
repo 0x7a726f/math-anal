@@ -206,6 +206,27 @@ struct ChampionPolicy {
         return active_d2_faces >= corner_2cut_face_threshold;
     }
 
+    int v_cutoff = 48;
+
+    int compute_max_valence(const Box& cell, const std::vector<Box>& boxes) const {
+        int d = cell.dim();
+        int max_v = 0;
+        for (int i = 0; i < d; ++i) {
+            std::vector<int64_t> coords;
+            coords.reserve(boxes.size() * 2 + 2);
+            coords.push_back(cell.low[i]);
+            coords.push_back(cell.high[i]);
+            for (const auto& b : boxes) {
+                if (b.low[i] > cell.low[i] && b.low[i] < cell.high[i]) coords.push_back(b.low[i]);
+                if (b.high[i] > cell.low[i] && b.high[i] < cell.high[i]) coords.push_back(b.high[i]);
+            }
+            std::sort(coords.begin(), coords.end());
+            int unique_cnt = (int)(std::unique(coords.begin(), coords.end()) - coords.begin());
+            max_v = std::max(max_v, unique_cnt);
+        }
+        return max_v;
+    }
+
     bool should_terminate_leaf(
         const Box& cell,
         const std::vector<Box>& boxes,
@@ -219,31 +240,35 @@ struct ChampionPolicy {
         else if (d == 4) threshold = thresh_d4;
         if ((int)boxes.size() <= threshold) return true;
         if (active_d2_faces == 0) return true;
-        if (is_clean_cell(cell, boxes)) return true;
-        if ((d == 4 || d == 5 || d == 6) && is_hypergraph_clean_cell(cell, boxes)) return true;
+        if (is_clean_cell(cell, boxes) || ((d == 4 || d == 5 || d == 6) && is_hypergraph_clean_cell(cell, boxes))) {
+            if (compute_max_valence(cell, boxes) <= v_cutoff) {
+                return true;
+            }
+        }
         return false;
     }
 
     Int128 evaluate_leaf(
         const Box& cell,
         const std::vector<Box>& boxes,
-        int d
+        int d,
+        StructuralCounters* counters = nullptr
     ) const {
         if (boxes.empty()) return Int128(0);
         if (boxes.size() == 1) return boxes[0].volume();
         if (is_clean_cell(cell, boxes)) {
-            return evaluate_tensor_clean_cell(cell, boxes);
+            return evaluate_tensor_clean_cell(cell, boxes, counters);
         }
         if (d == 4 && is_hypergraph_clean_cell(cell, boxes)) {
-            return evaluate_tensor_hypergraph_d4(cell, boxes);
+            return evaluate_tensor_hypergraph_d4(cell, boxes, counters);
         }
         if (d == 5 && is_hypergraph_clean_cell(cell, boxes)) {
-            return evaluate_tensor_hypergraph_d5(cell, boxes);
+            return evaluate_tensor_hypergraph_d5(cell, boxes, counters);
         }
         if (d == 6 && is_hypergraph_clean_cell(cell, boxes)) {
-            return evaluate_tensor_hypergraph_d6(cell, boxes);
+            return evaluate_tensor_hypergraph_d6(cell, boxes, counters);
         }
-        return exact_kmp_sweep(boxes, d);
+        return exact_kmp_sweep(boxes, d, counters);
     }
 };
 

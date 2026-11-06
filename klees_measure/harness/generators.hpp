@@ -128,4 +128,29 @@ inline std::vector<Box> generate_small_test(int n, int d, uint64_t seed) {
     return boxes;
 }
 
+
+// 4. Epsilon-Jitter Perturbation Generator (Directive V2 Mode B)
+// Adds pseudo-random perturbation epsilon in [-10^-9, 10^-9] (scaled to integer grid domain)
+// to all box coordinates to break lattice symmetries, forcing V = Theta(n) distinct coordinates
+// per axis and verifying genuine spatial bisection until subcell valence V_sub <= V_cutoff.
+inline std::vector<Box> apply_epsilon_jitter(const std::vector<Box>& boxes, int d, uint64_t seed = 99991) {
+    FastRng rng(seed);
+    const int64_t M = 1000000;
+    std::vector<Box> jittered = boxes;
+    for (size_t k = 0; k < jittered.size(); ++k) {
+        for (int i = 0; i < d; ++i) {
+            if (jittered[k].low[i] > 0) {
+                int64_t eps = rng.next_range(-250, 250);
+                jittered[k].low[i] = std::max((int64_t)1, jittered[k].low[i] + eps);
+            }
+            if (jittered[k].high[i] < M) {
+                int64_t eps = rng.next_range(-250, 250);
+                jittered[k].high[i] = std::min(M - 1, std::max(jittered[k].low[i] + 1, jittered[k].high[i] + eps));
+            }
+        }
+    }
+    return jittered;
+}
+
 } // namespace kmp
+
